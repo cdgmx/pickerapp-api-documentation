@@ -3,9 +3,6 @@
         "required": [
             "picklist_id"
         ],
-        "tag": [
-            "picklist_item_model"
-        ],
         "properties": {
             "id": {
                 "type": "string",

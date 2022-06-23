@@ -3,9 +3,7 @@
     "required": [
         "name"
     ],
-    "tags": [
-        "role_model"
-    ],
+  
     "properties": {
         "id": {
             "type": "string",

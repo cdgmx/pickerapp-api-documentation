@@ -9,9 +9,7 @@
                   "zone",
                   "is_active"
               ],
-              "tags": [
-                  "user_model"
-              ],
+          
               "properties": {
                   "id": {
                       "type": "string",

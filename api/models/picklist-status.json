@@ -3,9 +3,7 @@
               "required": [
                   "name"
               ],
-              "tags": [
-                  "picklist_status_model"
-              ],
+      
               "properties": {
                   "id": {
                       "type": "integer",

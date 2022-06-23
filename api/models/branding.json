@@ -3,9 +3,6 @@
     "required": [
         "name"
     ],
-    "tags": [
-        "branding_model"
-    ],
     "properties": {
         "id": {
             "type": "string",

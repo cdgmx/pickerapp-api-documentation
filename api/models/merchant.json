@@ -3,9 +3,7 @@
     "required": [
         "name"
     ],
-    "tag": [
-        "merchant_model"
-    ],
+
     "properties": {
         "id": {
             "type": "string",

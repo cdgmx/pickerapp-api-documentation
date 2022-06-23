@@ -3,9 +3,7 @@
     "required": [
         "order_id"
     ],
-    "tags": [
-        "picklist_model"
-    ],
+
     "properties": {
         "id": {
             "type": "string",

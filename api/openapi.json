@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-      "version": "1",
+      "version": "1.0.0",
       "title": "Picker App Web View",
       "license": {
           "name": "MIT"
@@ -13,11 +13,10 @@
           "description": "Local server"
       },
       {
-          "url": "https://api-pckrapp-staging.codedisruptors.com:4003/api",
-          "description": "Staging server"
+          "url": "https://api-pckrapp-stagsing.codedisruptors.com:4003/api",
+          "description": "Stagsing server"
       }
   ],
-  
   "tags": [
     {
         "name": "picklist_item_model",
@@ -58,12 +57,6 @@
         "name":"branding_model",
         "x-displayName":"Branding Model",
         "description":"<SchemaDefinition schemaRef=\"#/components/schemas/Branding\" />\n"
-
-    },
-    {
-        "name":"branding_model",
-        "x-displayName":"Branding Model",
-        "description":"<SchemaDefinition schemaRef=\"#/components/schemas/Branding\" />\n"
     },
     {
         "name":"error_model",
@@ -97,7 +90,6 @@
     }
   ],
   "x-tagGroups": [
- 
     {
       "name": "User Management",
       "tags": [
@@ -142,8 +134,8 @@
               "summary": "List of user/s",
               "operationId": "listUser",
               "tags": [
-                  "user"
-              ],
+                "user"
+            ],
               "parameters": [
                   {
                       "name": "limit",
@@ -1732,12 +1724,12 @@
                                           "$ref": "#/components/schemas/Error"
                                       },
                                       {
-                                          "title": "error response of staging picklist",
+                                          "title": "error response of stagsing picklist",
                                           "type": "object",
                                           "properties": {
                                               "message": {
                                                   "type": "string",
-                                                  "example": "Error staging picklist"
+                                                  "example": "Error stagsing picklist"
                                               }
                                           }
                                       }
@@ -1904,6 +1896,95 @@
                   }
               }
           }
+      },
+      "/picklists/:picklistId/scan":{
+            "put":{
+                "summary": "Scan item",
+                "operationId": "scanItem",
+                "tags": [
+                    "picklist"
+                ],
+                "parameters": [
+                    {
+                        "name": "picklistId",
+                        "in": "path",
+                        "description": "Picklist ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "itemId": {
+                                        "type": "string",
+                                        "format": "uuid"
+                                    },
+                                    "barcode": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Success"
+                                        },
+                                        {
+                                            "title": "response of scanning item",
+                                            "type": "object",
+                                            "properties": {
+                                                "message": {
+                                                    "type": "string",
+                                                    "example": "Item scanned"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Error Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/components/schemas/Error"
+                                        },
+                                        {
+                                            "title": "error response of scanning item",
+                                            "type": "object",
+                                            "properties": {
+                                                "message": {
+                                                    "type": "string",
+                                                    "example": "Error scanning item"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
       },
       "/picklists/consolidate": {
           "put": {

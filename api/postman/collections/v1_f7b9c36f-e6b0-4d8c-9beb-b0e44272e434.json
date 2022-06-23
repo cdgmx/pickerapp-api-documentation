@@ -1,0 +1,2485 @@
+{
+	"info": {
+		"_postman_id": "2338cc4a-5c1b-4c1b-b352-a3ffe9ff6e89",
+		"name": "v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Update a user",
+							"id": "fc77f220-0d7c-4ffe-ac30-705a5e5f4a9a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\",\n  \"email\": \"test@gmail.com\",\n  \"branch_id\": \"5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"zone\": \"qui cillum ipsum\",\n  \"is_active\": true,\n  \"remarks\": \"minim laboris\",\n  \"role_id\": \"98365544-b572-31f5-0735-72165ee8061b\",\n  \"created_by\": \"urn:uuid:3ba3035a-852d-9dc6-9115-1dac8b20efae\",\n  \"updated_by\": \"urn:uuid:490b0845-359b-6ee5-a62f-cecb343eb9e1\",\n  \"created_at\": \"1963-02-12T11:19:54.642Z\",\n  \"updated_at\": \"1961-11-20T01:15:17.881Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/user/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "33a5e592-32ac-41fe-b1f7-bd7ec5453301",
+											"key": "id",
+											"value": "5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f",
+											"description": "(Required) User ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "2265eee2-6425-407b-9450-a9488d9fb534",
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\",\n  \"email\": \"test@gmail.com\",\n  \"branch_id\": \"5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"zone\": \"qui cillum ipsum\",\n  \"is_active\": true,\n  \"remarks\": \"minim laboris\",\n  \"role_id\": \"98365544-b572-31f5-0735-72165ee8061b\",\n  \"created_by\": \"urn:uuid:3ba3035a-852d-9dc6-9115-1dac8b20efae\",\n  \"updated_by\": \"urn:uuid:490b0845-359b-6ee5-a62f-cecb343eb9e1\",\n  \"created_at\": \"1963-02-12T11:19:54.642Z\",\n  \"updated_at\": \"1961-11-20T01:15:17.881Z\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/user/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"user",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f",
+													"description": "(Required) User ID"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"data\": {\n    \"id\": \"5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n    \"first_name\": \"John\",\n    \"last_name\": \"Doe\",\n    \"email\": \"test@gmail.com\",\n    \"branch_id\": \"5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n    \"zone\": \"laboris adipisicing\",\n    \"is_active\": false,\n    \"remarks\": \"tempor dolore\",\n    \"role_id\": \"urn:uuid:a7318b59-b1c8-10b7-909b-8ae41e0a5018\",\n    \"created_by\": \"urn:uuid:47091971-4322-78d9-6bfa-190b14906aef\",\n    \"updated_by\": \"f24bd49b-9658-1f97-8f20-180e1d7203c3\",\n    \"created_at\": \"1960-05-12T00:09:07.366Z\",\n    \"updated_at\": \"2012-12-01T00:34:02.291Z\"\n  },\n  \"message\": \"Success retrieve data\",\n  \"status\": 200,\n  \"statusText\": \"OK\"\n}"
+								},
+								{
+									"id": "8937f851-8b8a-4849-b791-7c8bc42a5c66",
+									"name": "Error Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\",\n  \"email\": \"test@gmail.com\",\n  \"branch_id\": \"5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"zone\": \"qui cillum ipsum\",\n  \"is_active\": true,\n  \"remarks\": \"minim laboris\",\n  \"role_id\": \"98365544-b572-31f5-0735-72165ee8061b\",\n  \"created_by\": \"urn:uuid:3ba3035a-852d-9dc6-9115-1dac8b20efae\",\n  \"updated_by\": \"urn:uuid:490b0845-359b-6ee5-a62f-cecb343eb9e1\",\n  \"created_at\": \"1963-02-12T11:19:54.642Z\",\n  \"updated_at\": \"1961-11-20T01:15:17.881Z\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/user/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"user",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f",
+													"description": "(Required) User ID"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"name\": \"APIClientError\",\n  \"message\": \"Error retrieving data\",\n  \"error\": {\n    \"message\": \"Error retrieving data\"\n  },\n  \"status\": 500,\n  \"statusText\": \"veniam nostrud\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete a user",
+							"id": "6bb1a80a-e19e-41d9-b66f-1e7c47155bff",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/user/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "a2df6140-10a0-48f4-8fb5-ad1972a6b7e6",
+											"key": "id",
+											"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+											"description": "(Required) User ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "a338b13d-c80c-4c09-900c-72c4a2379606",
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/user/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"user",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) User ID"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"data\": {\n    \"id\": \"5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n    \"first_name\": \"John\",\n    \"last_name\": \"Doe\",\n    \"email\": \"test@gmail.com\",\n    \"branch_id\": \"5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n    \"zone\": \"tempor pariatur eu\",\n    \"is_active\": false,\n    \"remarks\": \"incididunt\",\n    \"role_id\": \"81a7ce13-4a37-f9a3-db9e-995a38ad4cfd\",\n    \"created_by\": \"urn:uuid:854760a4-82e4-2e08-f9b2-9053389fa5d6\",\n    \"updated_by\": \"urn:uuid:20877ac6-0598-e62f-87c6-e424befc8f50\",\n    \"created_at\": \"1952-06-26T14:15:14.174Z\",\n    \"updated_at\": \"1958-02-22T12:12:10.759Z\"\n  },\n  \"message\": \"Success retrieve data\",\n  \"status\": 200,\n  \"statusText\": \"OK\"\n}"
+								},
+								{
+									"id": "9bb108f9-430c-45a4-852b-da6de5c8fa99",
+									"name": "Error Response",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/user/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"user",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) User ID"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"name\": \"APIClientError\",\n  \"message\": \"Error retrieving data\",\n  \"error\": {\n    \"message\": \"Error retrieving data\"\n  },\n  \"status\": 500,\n  \"statusText\": \"et id dolore\"\n}"
+								}
+							]
+						}
+					],
+					"id": "68827b22-4994-4a3a-a159-ab7ac542cca3"
+				},
+				{
+					"name": "List of user/s",
+					"id": "ad1b51a3-9691-438d-9d39-ef0a779d1b01",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/user?limit=10&page=1&sort_by=address&sort_desc=ASC",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "(Required) maximum number of results to return"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "(Required) Page number"
+								},
+								{
+									"key": "sort_by",
+									"value": "address",
+									"description": "Sort by specified column"
+								},
+								{
+									"key": "sort_desc",
+									"value": "ASC",
+									"description": "Sort by descending or ascending"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "85695c52-569f-44d8-8687-7379c61ba058",
+							"name": "Success Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/user?limit=10&page=1&sort_by=address&sort_desc=ASC",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "sort_by",
+											"value": "address"
+										},
+										{
+											"key": "sort_desc",
+											"value": "ASC"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"data\": {\n    \"rows\": [\n      {\n        \"id\": \"5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"email\": \"test@gmail.com\",\n        \"branch_id\": \"5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"zone\": \"velit est consequat\",\n        \"is_active\": false,\n        \"remarks\": \"aute adipisicing irure cillum est\",\n        \"role_id\": \"c6585a28-41c1-b4f9-d386-86aacaf4e4d0\",\n        \"created_by\": \"7eab977f-266d-7afd-7564-2ea2fd65753a\",\n        \"updated_by\": \"574d5faa-0022-c7fe-0412-043a528ca479\",\n        \"created_at\": \"1990-11-30T20:59:46.170Z\",\n        \"updated_at\": \"1968-05-13T12:45:59.098Z\"\n      },\n      {\n        \"id\": \"5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"email\": \"test@gmail.com\",\n        \"branch_id\": \"5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"zone\": \"repr\",\n        \"is_active\": false,\n        \"remarks\": \"aliquip exercitation\",\n        \"role_id\": \"urn:uuid:9050e076-bff9-1533-c0c6-f77fde49f2fd\",\n        \"created_by\": \"urn:uuid:949af1f4-4904-fb32-14d1-ccf11bccc0ba\",\n        \"updated_by\": \"0a0421e7-3759-c798-b586-953e3b5671a3\",\n        \"created_at\": \"1998-03-19T02:37:51.151Z\",\n        \"updated_at\": \"1952-09-30T09:05:06.894Z\"\n      }\n    ]\n  },\n  \"message\": \"Success retrieve data\",\n  \"status\": 200,\n  \"statusText\": \"OK\"\n}"
+						},
+						{
+							"id": "12934c0e-e755-487b-be37-3e7993d48b66",
+							"name": "Error Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/user?limit=10&page=1&sort_by=address&sort_desc=ASC",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "sort_by",
+											"value": "address"
+										},
+										{
+											"key": "sort_desc",
+											"value": "ASC"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"name\": \"APIClientError\",\n  \"message\": \"Error retrieving data\",\n  \"error\": {\n    \"message\": \"Error retrieving data\"\n  },\n  \"status\": 500,\n  \"statusText\": \"veniam non magna\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create a new user",
+					"id": "f1bd6d33-ea01-4536-8518-bed072d8ad49",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\",\n  \"email\": \"test@gmail.com\",\n  \"branch_id\": \"5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"zone\": \"qui cillum ipsum\",\n  \"is_active\": true,\n  \"remarks\": \"minim laboris\",\n  \"role_id\": \"98365544-b572-31f5-0735-72165ee8061b\",\n  \"created_by\": \"urn:uuid:3ba3035a-852d-9dc6-9115-1dac8b20efae\",\n  \"updated_by\": \"urn:uuid:490b0845-359b-6ee5-a62f-cecb343eb9e1\",\n  \"created_at\": \"1963-02-12T11:19:54.642Z\",\n  \"updated_at\": \"1961-11-20T01:15:17.881Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "cbd891b7-c5fc-4d32-b337-f8a1ca8ad6b2",
+							"name": "Success Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\",\n  \"email\": \"test@gmail.com\",\n  \"branch_id\": \"5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"zone\": \"qui cillum ipsum\",\n  \"is_active\": true,\n  \"remarks\": \"minim laboris\",\n  \"role_id\": \"98365544-b572-31f5-0735-72165ee8061b\",\n  \"created_by\": \"urn:uuid:3ba3035a-852d-9dc6-9115-1dac8b20efae\",\n  \"updated_by\": \"urn:uuid:490b0845-359b-6ee5-a62f-cecb343eb9e1\",\n  \"created_at\": \"1963-02-12T11:19:54.642Z\",\n  \"updated_at\": \"1961-11-20T01:15:17.881Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"data\": {\n    \"id\": \"5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n    \"first_name\": \"John\",\n    \"last_name\": \"Doe\",\n    \"email\": \"test@gmail.com\",\n    \"branch_id\": \"5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n    \"zone\": \"proident\",\n    \"is_active\": false,\n    \"remarks\": \"minim laborum fugiat\",\n    \"role_id\": \"urn:uuid:3754ead5-dd8d-da8d-ae93-064ff752046a\",\n    \"created_by\": \"urn:uuid:684bed68-a135-0684-2310-e15e1f533e0a\",\n    \"updated_by\": \"3ee1c0c9-767a-fb5d-e64a-e93577188ed7\",\n    \"created_at\": \"2013-10-01T08:05:27.019Z\",\n    \"updated_at\": \"1943-07-30T01:01:11.169Z\"\n  },\n  \"message\": \"Success retrieve data\",\n  \"status\": 200,\n  \"statusText\": \"OK\"\n}"
+						},
+						{
+							"id": "cb67f32b-fc72-4577-82de-8baf7e227ec4",
+							"name": "Error Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\",\n  \"email\": \"test@gmail.com\",\n  \"branch_id\": \"5e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"zone\": \"qui cillum ipsum\",\n  \"is_active\": true,\n  \"remarks\": \"minim laboris\",\n  \"role_id\": \"98365544-b572-31f5-0735-72165ee8061b\",\n  \"created_by\": \"urn:uuid:3ba3035a-852d-9dc6-9115-1dac8b20efae\",\n  \"updated_by\": \"urn:uuid:490b0845-359b-6ee5-a62f-cecb343eb9e1\",\n  \"created_at\": \"1963-02-12T11:19:54.642Z\",\n  \"updated_at\": \"1961-11-20T01:15:17.881Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"name\": \"APIClientError\",\n  \"message\": \"Error retrieving data\",\n  \"error\": {\n    \"message\": \"Error retrieving data\"\n  },\n  \"status\": 500,\n  \"statusText\": \"labore eiusmod amet pariatur in\"\n}"
+						}
+					]
+				}
+			],
+			"id": "41031b2a-5950-4086-b7fd-a9a1f5f05cba"
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "{order Id}",
+					"item": [
+						{
+							"name": "Get order details",
+							"id": "f36352a2-b3c0-4ff5-bff6-dc2a371c105f",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/orders/:orderId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"orders",
+										":orderId"
+									],
+									"variable": [
+										{
+											"id": "db6ac87c-4c81-4f92-bd2c-b183eb0b4c81",
+											"key": "orderId",
+											"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+											"description": "(Required) Order ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "2d947cbe-256e-4015-98d1-89de0eb6c250",
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/orders/:orderId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"orders",
+												":orderId"
+											],
+											"variable": [
+												{
+													"key": "orderId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Order ID"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"data\": {\n    \"order_number\": \"12345\",\n    \"id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n    \"date\": \"2019-01-01T00:00:00.000Z\",\n    \"total_quantity\": 10,\n    \"remarks\": \"This is a test order\",\n    \"status\": \"Pending\",\n    \"delivery_date\": \"2019-01-01T00:00:00.000Z\",\n    \"delivery_time_block_from\": \"2019-01-01T00:00:00.000Z\",\n    \"delivery_time_block_to\": \"2019-01-01T00:00:00.000Z\",\n    \"picking_type\": \"Delivery\",\n    \"customer_name\": \"John Doe\",\n    \"customer_email\": \"test@gmail.com\",\n    \"customer_contact_number\": \"1234567890\",\n    \"shipping_method\": \"Delivery\",\n    \"shipping_fee\": 10,\n    \"shopper_fee\": 10,\n    \"discount\": 10,\n    \"address\": \"123 Main St, New York, NY 10001\",\n    \"barangay\": \"Pasig\",\n    \"municipality\": \"Pasig\",\n    \"province\": \"Metro Manila\",\n    \"region\": \"Metro Manila\",\n    \"country\": \"Philippines\",\n    \"zip_code\": \"10001\",\n    \"branch_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n  },\n  \"message\": \"Success retrieve data\",\n  \"status\": 200,\n  \"statusText\": \"OK\"\n}"
+								},
+								{
+									"id": "93dabe63-7361-4b4a-a456-e1b5ace1be0e",
+									"name": "Error Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/orders/:orderId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"orders",
+												":orderId"
+											],
+											"variable": [
+												{
+													"key": "orderId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Order ID"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"name\": \"APIClientError\",\n  \"message\": \"Error retrieving data\",\n  \"error\": {\n    \"message\": \"Error retrieving data\"\n  },\n  \"status\": 500,\n  \"statusText\": \"qui Excepteur ut quis pariatur\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update order",
+							"id": "84c43c5b-5506-4c4e-8809-3ec15f033ef0",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"order_number\": \"12345\",\n  \"date\": \"2019-01-01T00:00:00.000Z\",\n  \"total_quantity\": 10,\n  \"remarks\": \"This is a test order\",\n  \"status\": \"Pending\",\n  \"delivery_date\": \"2019-01-01T00:00:00.000Z\",\n  \"delivery_time_block_from\": \"2019-01-01T00:00:00.000Z\",\n  \"delivery_time_block_to\": \"2019-01-01T00:00:00.000Z\",\n  \"picking_type\": \"Delivery\",\n  \"customer_name\": \"John Doe\",\n  \"customer_email\": \"test@gmail.com\",\n  \"customer_contact_number\": \"1234567890\",\n  \"shipping_method\": \"Delivery\",\n  \"shipping_fee\": 10,\n  \"shopper_fee\": 10,\n  \"discount\": 10,\n  \"address\": \"123 Main St, New York, NY 10001\",\n  \"barangay\": \"Pasig\",\n  \"municipality\": \"Pasig\",\n  \"province\": \"Metro Manila\",\n  \"region\": \"Metro Manila\",\n  \"country\": \"Philippines\",\n  \"zip_code\": \"10001\",\n  \"branch_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/orders/:orderId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"orders",
+										":orderId"
+									],
+									"variable": [
+										{
+											"id": "95c57271-a7b4-4f74-ae24-1d8d922845b7",
+											"key": "orderId",
+											"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+											"description": "(Required) Order ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "490d9248-22c0-43a6-870c-f343f7ddcdf2",
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"order_number\": \"12345\",\n  \"date\": \"2019-01-01T00:00:00.000Z\",\n  \"total_quantity\": 10,\n  \"remarks\": \"This is a test order\",\n  \"status\": \"Pending\",\n  \"delivery_date\": \"2019-01-01T00:00:00.000Z\",\n  \"delivery_time_block_from\": \"2019-01-01T00:00:00.000Z\",\n  \"delivery_time_block_to\": \"2019-01-01T00:00:00.000Z\",\n  \"picking_type\": \"Delivery\",\n  \"customer_name\": \"John Doe\",\n  \"customer_email\": \"test@gmail.com\",\n  \"customer_contact_number\": \"1234567890\",\n  \"shipping_method\": \"Delivery\",\n  \"shipping_fee\": 10,\n  \"shopper_fee\": 10,\n  \"discount\": 10,\n  \"address\": \"123 Main St, New York, NY 10001\",\n  \"barangay\": \"Pasig\",\n  \"municipality\": \"Pasig\",\n  \"province\": \"Metro Manila\",\n  \"region\": \"Metro Manila\",\n  \"country\": \"Philippines\",\n  \"zip_code\": \"10001\",\n  \"branch_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/orders/:orderId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"orders",
+												":orderId"
+											],
+											"variable": [
+												{
+													"key": "orderId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Order ID"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"data\": {\n    \"order_number\": \"12345\",\n    \"id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n    \"date\": \"2019-01-01T00:00:00.000Z\",\n    \"total_quantity\": 10,\n    \"remarks\": \"This is a test order\",\n    \"status\": \"Pending\",\n    \"delivery_date\": \"2019-01-01T00:00:00.000Z\",\n    \"delivery_time_block_from\": \"2019-01-01T00:00:00.000Z\",\n    \"delivery_time_block_to\": \"2019-01-01T00:00:00.000Z\",\n    \"picking_type\": \"Delivery\",\n    \"customer_name\": \"John Doe\",\n    \"customer_email\": \"test@gmail.com\",\n    \"customer_contact_number\": \"1234567890\",\n    \"shipping_method\": \"Delivery\",\n    \"shipping_fee\": 10,\n    \"shopper_fee\": 10,\n    \"discount\": 10,\n    \"address\": \"123 Main St, New York, NY 10001\",\n    \"barangay\": \"Pasig\",\n    \"municipality\": \"Pasig\",\n    \"province\": \"Metro Manila\",\n    \"region\": \"Metro Manila\",\n    \"country\": \"Philippines\",\n    \"zip_code\": \"10001\",\n    \"branch_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n  },\n  \"message\": \"Success retrieve data\",\n  \"status\": 200,\n  \"statusText\": \"OK\"\n}"
+								},
+								{
+									"id": "9ca410b4-8051-4df6-90b0-c4c42806342d",
+									"name": "Error Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"order_number\": \"12345\",\n  \"date\": \"2019-01-01T00:00:00.000Z\",\n  \"total_quantity\": 10,\n  \"remarks\": \"This is a test order\",\n  \"status\": \"Pending\",\n  \"delivery_date\": \"2019-01-01T00:00:00.000Z\",\n  \"delivery_time_block_from\": \"2019-01-01T00:00:00.000Z\",\n  \"delivery_time_block_to\": \"2019-01-01T00:00:00.000Z\",\n  \"picking_type\": \"Delivery\",\n  \"customer_name\": \"John Doe\",\n  \"customer_email\": \"test@gmail.com\",\n  \"customer_contact_number\": \"1234567890\",\n  \"shipping_method\": \"Delivery\",\n  \"shipping_fee\": 10,\n  \"shopper_fee\": 10,\n  \"discount\": 10,\n  \"address\": \"123 Main St, New York, NY 10001\",\n  \"barangay\": \"Pasig\",\n  \"municipality\": \"Pasig\",\n  \"province\": \"Metro Manila\",\n  \"region\": \"Metro Manila\",\n  \"country\": \"Philippines\",\n  \"zip_code\": \"10001\",\n  \"branch_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/orders/:orderId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"orders",
+												":orderId"
+											],
+											"variable": [
+												{
+													"key": "orderId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Order ID"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"name\": \"APIClientError\",\n  \"message\": \"Error retrieving data\",\n  \"error\": {\n    \"message\": \"Error retrieving data\"\n  },\n  \"status\": 500,\n  \"statusText\": \"consequat\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Get all order items",
+							"id": "5acd06dc-59e3-4d8c-ba3b-d7518ea6d845",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/orders/:orderId/items",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"orders",
+										":orderId",
+										"items"
+									],
+									"variable": [
+										{
+											"id": "a895b30c-47a3-4fa1-9760-2c00959830bf",
+											"key": "orderId",
+											"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+											"description": "(Required) Order ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "2592cc48-8f1a-4bf9-8062-fad97cfd0405",
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/orders/:orderId/items",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"orders",
+												":orderId",
+												"items"
+											],
+											"variable": [
+												{
+													"key": "orderId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Order ID"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"data\": {\n    \"rows\": [\n      {\n        \"name\": \"Test Item\",\n        \"id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"sku\": \"TEST-ITEM\",\n        \"barcode\": \"TEST-ITEM\",\n        \"zone\": \"Zone 1\",\n        \"unit_price\": 10,\n        \"quantity\": 10,\n        \"remarks\": \"This is a test order\",\n        \"is_open_weight\": true,\n        \"weight\": 10,\n        \"order_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\"\n      },\n      {\n        \"name\": \"Test Item\",\n        \"id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"sku\": \"TEST-ITEM\",\n        \"barcode\": \"TEST-ITEM\",\n        \"zone\": \"Zone 1\",\n        \"unit_price\": 10,\n        \"quantity\": 10,\n        \"remarks\": \"This is a test order\",\n        \"is_open_weight\": true,\n        \"weight\": 10,\n        \"order_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\"\n      }\n    ]\n  },\n  \"message\": \"Success retrieve data\",\n  \"status\": 200,\n  \"statusText\": \"OK\"\n}"
+								},
+								{
+									"id": "aa3f563a-ee7d-4b6b-b22d-f1daba0d5a0e",
+									"name": "Error Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/orders/:orderId/items",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"orders",
+												":orderId",
+												"items"
+											],
+											"variable": [
+												{
+													"key": "orderId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Order ID"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"name\": \"APIClientError\",\n  \"message\": \"Error retrieving data\",\n  \"error\": {\n    \"message\": \"Error retrieving data\"\n  },\n  \"status\": 500,\n  \"statusText\": \"in commodo deserunt cupidatat\"\n}"
+								}
+							]
+						}
+					],
+					"id": "c7e738ec-5b43-42d0-b56f-e1691d37b907"
+				},
+				{
+					"name": "Get all orders",
+					"id": "f3db6864-ccc2-42e3-a704-682b27bfc58e",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/orders",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "e8cdadbc-9352-4be8-a2de-4db6cca1167b",
+							"name": "Success Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/orders",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"data\": {\n    \"rows\": [\n      {\n        \"order_number\": \"12345\",\n        \"id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"date\": \"2019-01-01T00:00:00.000Z\",\n        \"total_quantity\": 10,\n        \"remarks\": \"This is a test order\",\n        \"status\": \"Pending\",\n        \"delivery_date\": \"2019-01-01T00:00:00.000Z\",\n        \"delivery_time_block_from\": \"2019-01-01T00:00:00.000Z\",\n        \"delivery_time_block_to\": \"2019-01-01T00:00:00.000Z\",\n        \"picking_type\": \"Delivery\",\n        \"customer_name\": \"John Doe\",\n        \"customer_email\": \"test@gmail.com\",\n        \"customer_contact_number\": \"1234567890\",\n        \"shipping_method\": \"Delivery\",\n        \"shipping_fee\": 10,\n        \"shopper_fee\": 10,\n        \"discount\": 10,\n        \"address\": \"123 Main St, New York, NY 10001\",\n        \"barangay\": \"Pasig\",\n        \"municipality\": \"Pasig\",\n        \"province\": \"Metro Manila\",\n        \"region\": \"Metro Manila\",\n        \"country\": \"Philippines\",\n        \"zip_code\": \"10001\",\n        \"branch_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      {\n        \"order_number\": \"12345\",\n        \"id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"date\": \"2019-01-01T00:00:00.000Z\",\n        \"total_quantity\": 10,\n        \"remarks\": \"This is a test order\",\n        \"status\": \"Pending\",\n        \"delivery_date\": \"2019-01-01T00:00:00.000Z\",\n        \"delivery_time_block_from\": \"2019-01-01T00:00:00.000Z\",\n        \"delivery_time_block_to\": \"2019-01-01T00:00:00.000Z\",\n        \"picking_type\": \"Delivery\",\n        \"customer_name\": \"John Doe\",\n        \"customer_email\": \"test@gmail.com\",\n        \"customer_contact_number\": \"1234567890\",\n        \"shipping_method\": \"Delivery\",\n        \"shipping_fee\": 10,\n        \"shopper_fee\": 10,\n        \"discount\": 10,\n        \"address\": \"123 Main St, New York, NY 10001\",\n        \"barangay\": \"Pasig\",\n        \"municipality\": \"Pasig\",\n        \"province\": \"Metro Manila\",\n        \"region\": \"Metro Manila\",\n        \"country\": \"Philippines\",\n        \"zip_code\": \"10001\",\n        \"branch_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    ]\n  },\n  \"message\": \"Success retrieve data\",\n  \"status\": 200,\n  \"statusText\": \"OK\"\n}"
+						},
+						{
+							"id": "4a1440f9-6395-4443-862f-0e262919423e",
+							"name": "Error Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/orders",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"name\": \"APIClientError\",\n  \"message\": \"Error retrieving data\",\n  \"error\": {\n    \"message\": \"Error retrieving data\"\n  },\n  \"status\": 500,\n  \"statusText\": \"dolore\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create a order",
+					"id": "1d5fc444-2be5-4399-a1a0-2bcc012525e8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"order_number\": \"12345\",\n  \"date\": \"2019-01-01T00:00:00.000Z\",\n  \"total_quantity\": 10,\n  \"remarks\": \"This is a test order\",\n  \"status\": \"Pending\",\n  \"delivery_date\": \"2019-01-01T00:00:00.000Z\",\n  \"delivery_time_block_from\": \"2019-01-01T00:00:00.000Z\",\n  \"delivery_time_block_to\": \"2019-01-01T00:00:00.000Z\",\n  \"picking_type\": \"Delivery\",\n  \"customer_name\": \"John Doe\",\n  \"customer_email\": \"test@gmail.com\",\n  \"customer_contact_number\": \"1234567890\",\n  \"shipping_method\": \"Delivery\",\n  \"shipping_fee\": 10,\n  \"shopper_fee\": 10,\n  \"discount\": 10,\n  \"address\": \"123 Main St, New York, NY 10001\",\n  \"barangay\": \"Pasig\",\n  \"municipality\": \"Pasig\",\n  \"province\": \"Metro Manila\",\n  \"region\": \"Metro Manila\",\n  \"country\": \"Philippines\",\n  \"zip_code\": \"10001\",\n  \"branch_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"order_items\": [\n    {\n      \"name\": \"Test Item\",\n      \"sku\": \"TEST-ITEM\",\n      \"barcode\": \"TEST-ITEM\",\n      \"zone\": \"Zone 1\",\n      \"unit_price\": 10,\n      \"quantity\": 10,\n      \"remarks\": \"This is a test order\",\n      \"is_open_weight\": true,\n      \"weight\": 10\n    },\n    {\n      \"name\": \"Test Item\",\n      \"sku\": \"TEST-ITEM\",\n      \"barcode\": \"TEST-ITEM\",\n      \"zone\": \"Zone 1\",\n      \"unit_price\": 10,\n      \"quantity\": 10,\n      \"remarks\": \"This is a test order\",\n      \"is_open_weight\": true,\n      \"weight\": 10\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/orders",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "4ceefa79-f7e2-4333-a626-fac458e65a06",
+							"name": "Success Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"order_number\": \"12345\",\n  \"date\": \"2019-01-01T00:00:00.000Z\",\n  \"total_quantity\": 10,\n  \"remarks\": \"This is a test order\",\n  \"status\": \"Pending\",\n  \"delivery_date\": \"2019-01-01T00:00:00.000Z\",\n  \"delivery_time_block_from\": \"2019-01-01T00:00:00.000Z\",\n  \"delivery_time_block_to\": \"2019-01-01T00:00:00.000Z\",\n  \"picking_type\": \"Delivery\",\n  \"customer_name\": \"John Doe\",\n  \"customer_email\": \"test@gmail.com\",\n  \"customer_contact_number\": \"1234567890\",\n  \"shipping_method\": \"Delivery\",\n  \"shipping_fee\": 10,\n  \"shopper_fee\": 10,\n  \"discount\": 10,\n  \"address\": \"123 Main St, New York, NY 10001\",\n  \"barangay\": \"Pasig\",\n  \"municipality\": \"Pasig\",\n  \"province\": \"Metro Manila\",\n  \"region\": \"Metro Manila\",\n  \"country\": \"Philippines\",\n  \"zip_code\": \"10001\",\n  \"branch_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"order_items\": [\n    {\n      \"name\": \"Test Item\",\n      \"sku\": \"TEST-ITEM\",\n      \"barcode\": \"TEST-ITEM\",\n      \"zone\": \"Zone 1\",\n      \"unit_price\": 10,\n      \"quantity\": 10,\n      \"remarks\": \"This is a test order\",\n      \"is_open_weight\": true,\n      \"weight\": 10\n    },\n    {\n      \"name\": \"Test Item\",\n      \"sku\": \"TEST-ITEM\",\n      \"barcode\": \"TEST-ITEM\",\n      \"zone\": \"Zone 1\",\n      \"unit_price\": 10,\n      \"quantity\": 10,\n      \"remarks\": \"This is a test order\",\n      \"is_open_weight\": true,\n      \"weight\": 10\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/orders",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"data\": {\n    \"order_number\": \"12345\",\n    \"id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n    \"date\": \"2019-01-01T00:00:00.000Z\",\n    \"total_quantity\": 10,\n    \"remarks\": \"This is a test order\",\n    \"status\": \"Pending\",\n    \"delivery_date\": \"2019-01-01T00:00:00.000Z\",\n    \"delivery_time_block_from\": \"2019-01-01T00:00:00.000Z\",\n    \"delivery_time_block_to\": \"2019-01-01T00:00:00.000Z\",\n    \"picking_type\": \"Delivery\",\n    \"customer_name\": \"John Doe\",\n    \"customer_email\": \"test@gmail.com\",\n    \"customer_contact_number\": \"1234567890\",\n    \"shipping_method\": \"Delivery\",\n    \"shipping_fee\": 10,\n    \"shopper_fee\": 10,\n    \"discount\": 10,\n    \"address\": \"123 Main St, New York, NY 10001\",\n    \"barangay\": \"Pasig\",\n    \"municipality\": \"Pasig\",\n    \"province\": \"Metro Manila\",\n    \"region\": \"Metro Manila\",\n    \"country\": \"Philippines\",\n    \"zip_code\": \"10001\",\n    \"branch_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n  },\n  \"message\": \"Success retrieve data\",\n  \"status\": 200,\n  \"statusText\": \"OK\"\n}"
+						},
+						{
+							"id": "b98d4ec4-4d9e-485b-9589-a317b4ff50e3",
+							"name": "Error Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"order_number\": \"12345\",\n  \"date\": \"2019-01-01T00:00:00.000Z\",\n  \"total_quantity\": 10,\n  \"remarks\": \"This is a test order\",\n  \"status\": \"Pending\",\n  \"delivery_date\": \"2019-01-01T00:00:00.000Z\",\n  \"delivery_time_block_from\": \"2019-01-01T00:00:00.000Z\",\n  \"delivery_time_block_to\": \"2019-01-01T00:00:00.000Z\",\n  \"picking_type\": \"Delivery\",\n  \"customer_name\": \"John Doe\",\n  \"customer_email\": \"test@gmail.com\",\n  \"customer_contact_number\": \"1234567890\",\n  \"shipping_method\": \"Delivery\",\n  \"shipping_fee\": 10,\n  \"shopper_fee\": 10,\n  \"discount\": 10,\n  \"address\": \"123 Main St, New York, NY 10001\",\n  \"barangay\": \"Pasig\",\n  \"municipality\": \"Pasig\",\n  \"province\": \"Metro Manila\",\n  \"region\": \"Metro Manila\",\n  \"country\": \"Philippines\",\n  \"zip_code\": \"10001\",\n  \"branch_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"order_items\": [\n    {\n      \"name\": \"Test Item\",\n      \"sku\": \"TEST-ITEM\",\n      \"barcode\": \"TEST-ITEM\",\n      \"zone\": \"Zone 1\",\n      \"unit_price\": 10,\n      \"quantity\": 10,\n      \"remarks\": \"This is a test order\",\n      \"is_open_weight\": true,\n      \"weight\": 10\n    },\n    {\n      \"name\": \"Test Item\",\n      \"sku\": \"TEST-ITEM\",\n      \"barcode\": \"TEST-ITEM\",\n      \"zone\": \"Zone 1\",\n      \"unit_price\": 10,\n      \"quantity\": 10,\n      \"remarks\": \"This is a test order\",\n      \"is_open_weight\": true,\n      \"weight\": 10\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/orders",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"name\": \"APIClientError\",\n  \"message\": \"Error retrieving data\",\n  \"error\": {\n    \"message\": \"Error retrieving data\"\n  },\n  \"status\": 500,\n  \"statusText\": \"laboris\"\n}"
+						}
+					]
+				}
+			],
+			"id": "3e44d9bc-7078-44a3-b3a5-fbbfd217c64b"
+		},
+		{
+			"name": "picklists",
+			"item": [
+				{
+					"name": "{picklist Id}",
+					"item": [
+						{
+							"name": "Get picklist details",
+							"id": "0969abbd-1d1a-45d4-9b6e-d8efc1a9418f",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/picklists/:picklistId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"picklists",
+										":picklistId"
+									],
+									"variable": [
+										{
+											"id": "0e3d5e82-f14a-4ac7-bdef-64e96ce42d7a",
+											"key": "picklistId",
+											"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+											"description": "(Required) Picklist ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "0f101881-410e-4335-aaca-c80f63eb8f69",
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/picklists/:picklistId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"picklists",
+												":picklistId"
+											],
+											"variable": [
+												{
+													"key": "picklistId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Picklist ID"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"data\": {\n    \"order_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n    \"id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n    \"status_id\": 55833378,\n    \"picklist_number\": 1,\n    \"delivery_date\": \"2019-01-01T00:00:00.000Z\",\n    \"delivery_time_block_from\": \"2019-01-01T00:00:00.000Z\",\n    \"delivery_time_block_to\": \"2019-01-01T00:00:00.000Z\",\n    \"picked_cost\": 10,\n    \"picked_quantity\": 10,\n    \"zone\": \"Zone 1\",\n    \"assigned_picker_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n  },\n  \"message\": \"Success retrieve data\",\n  \"status\": 200,\n  \"statusText\": \"OK\"\n}"
+								},
+								{
+									"id": "27116586-6ffe-442d-b530-68586162ad2e",
+									"name": "Error Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/picklists/:picklistId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"picklists",
+												":picklistId"
+											],
+											"variable": [
+												{
+													"key": "picklistId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Picklist ID"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"name\": \"APIClientError\",\n  \"message\": \"Error retrieving data\",\n  \"error\": {\n    \"message\": \"Error retrieving data\"\n  },\n  \"status\": 500,\n  \"statusText\": \"velit esse in\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Get picklist items",
+							"id": "926e86df-d0fa-4d05-902f-b341bc73d0fa",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/picklists/:picklistId/items",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"picklists",
+										":picklistId",
+										"items"
+									],
+									"variable": [
+										{
+											"id": "5c08dfbd-773a-4664-a456-57cb0cf76b9a",
+											"key": "picklistId",
+											"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+											"description": "(Required) Picklist ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "50eb8830-6af0-4e9b-8992-323755e356e9",
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/picklists/:picklistId/items",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"picklists",
+												":picklistId",
+												"items"
+											],
+											"variable": [
+												{
+													"key": "picklistId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Picklist ID"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"data\": {\n    \"rows\": [\n      {\n        \"picklist_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"sku\": \"TEST-ITEM\",\n        \"barcode\": \"TEST-ITEM\",\n        \"zone\": \"Zone 1\",\n        \"is_open_weight\": true,\n        \"order_quantity\": 10,\n        \"actual_quantity\": 10,\n        \"order_weight\": 10,\n        \"actual_weight\": 10,\n        \"order_unit_price\": 10,\n        \"actual_price\": 10,\n        \"tag\": \"TEST-ITEM\",\n        \"status_id\": 1,\n        \"picklist_id_discrete\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"picklist_id_zone\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"image_url\": \"https://example.com/image.jpg\",\n        \"remarks\": \"TEST-ITEM\",\n        \"disposition\": \"TEST-ITEM\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      {\n        \"picklist_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"sku\": \"TEST-ITEM\",\n        \"barcode\": \"TEST-ITEM\",\n        \"zone\": \"Zone 1\",\n        \"is_open_weight\": true,\n        \"order_quantity\": 10,\n        \"actual_quantity\": 10,\n        \"order_weight\": 10,\n        \"actual_weight\": 10,\n        \"order_unit_price\": 10,\n        \"actual_price\": 10,\n        \"tag\": \"TEST-ITEM\",\n        \"status_id\": 1,\n        \"picklist_id_discrete\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"picklist_id_zone\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"image_url\": \"https://example.com/image.jpg\",\n        \"remarks\": \"TEST-ITEM\",\n        \"disposition\": \"TEST-ITEM\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    ]\n  },\n  \"message\": \"Success retrieve data\",\n  \"status\": 200,\n  \"statusText\": \"OK\"\n}"
+								},
+								{
+									"id": "98eec759-077b-49ca-bddf-bfa5fcac2858",
+									"name": "Error Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/picklists/:picklistId/items",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"picklists",
+												":picklistId",
+												"items"
+											],
+											"variable": [
+												{
+													"key": "picklistId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Picklist ID"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"name\": \"APIClientError\",\n  \"message\": \"Error retrieving data\",\n  \"error\": {\n    \"message\": \"Error retrieving data\"\n  },\n  \"status\": 500,\n  \"statusText\": \"minim elit\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Start picking",
+							"id": "dc78020f-a67e-4a43-add2-40f6b7569471",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/picklists/:picklistId/start",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"picklists",
+										":picklistId",
+										"start"
+									],
+									"variable": [
+										{
+											"id": "ca0e6f3a-0ec9-40f1-b16b-48d64c329cee",
+											"key": "picklistId",
+											"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+											"description": "(Required) Picklist ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "16dddbf3-c1a8-48e8-9c69-8f109e9b3d14",
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/picklists/:picklistId/start",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"picklists",
+												":picklistId",
+												"start"
+											],
+											"variable": [
+												{
+													"key": "picklistId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Picklist ID"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"data\": {},\n  \"message\": \"Success retrieve data\",\n  \"status\": 200,\n  \"statusText\": \"OK\"\n}"
+								},
+								{
+									"id": "85063f22-3cfc-44a7-869a-c2045a7ba370",
+									"name": "Error Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/picklists/:picklistId/start",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"picklists",
+												":picklistId",
+												"start"
+											],
+											"variable": [
+												{
+													"key": "picklistId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Picklist ID"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"name\": \"APIClientError\",\n  \"message\": \"Error retrieving data\",\n  \"error\": {\n    \"message\": \"Error retrieving data\"\n  },\n  \"status\": 500,\n  \"statusText\": \"tempor ad\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Park picklist",
+							"id": "28011bbb-cd27-4813-bcb7-fbd35c15eaa9",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/picklists/:picklistId/park",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"picklists",
+										":picklistId",
+										"park"
+									],
+									"variable": [
+										{
+											"id": "94eb531f-1828-4600-893c-6e7f4678c5c2",
+											"key": "picklistId",
+											"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+											"description": "(Required) Picklist ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "81922307-3dec-4217-b451-3f4eaadaa928",
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/picklists/:picklistId/park",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"picklists",
+												":picklistId",
+												"park"
+											],
+											"variable": [
+												{
+													"key": "picklistId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Picklist ID"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"data\": {},\n  \"message\": \"Success retrieve data\",\n  \"status\": 200,\n  \"statusText\": \"OK\"\n}"
+								},
+								{
+									"id": "f21cd972-5ef3-447b-ac4c-b1b8546eb304",
+									"name": "Error Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/picklists/:picklistId/park",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"picklists",
+												":picklistId",
+												"park"
+											],
+											"variable": [
+												{
+													"key": "picklistId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Picklist ID"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"name\": \"APIClientError\",\n  \"message\": \"Error retrieving data\",\n  \"error\": {\n    \"message\": \"Error retrieving data\"\n  },\n  \"status\": 500,\n  \"statusText\": \"elit tempor ea\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Stage picklist",
+							"id": "2f090b71-8553-4b27-801b-5995d4604dfd",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/picklists/:picklistId/stage",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"picklists",
+										":picklistId",
+										"stage"
+									],
+									"variable": [
+										{
+											"id": "632dd389-50f3-4cb7-b534-5140f9e6d7e4",
+											"key": "picklistId",
+											"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+											"description": "(Required) Picklist ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "dfd7f20f-4def-4568-8511-4bee5c1c7aae",
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/picklists/:picklistId/stage",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"picklists",
+												":picklistId",
+												"stage"
+											],
+											"variable": [
+												{
+													"key": "picklistId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Picklist ID"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"data\": {},\n  \"message\": \"Success retrieve data\",\n  \"status\": 200,\n  \"statusText\": \"OK\"\n}"
+								},
+								{
+									"id": "6287de42-15d3-434d-9ec3-ecc72ef51379",
+									"name": "Error Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/picklists/:picklistId/stage",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"picklists",
+												":picklistId",
+												"stage"
+											],
+											"variable": [
+												{
+													"key": "picklistId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Picklist ID"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"name\": \"APIClientError\",\n  \"message\": \"Error retrieving data\",\n  \"error\": {\n    \"message\": \"Error retrieving data\"\n  },\n  \"status\": 500,\n  \"statusText\": \"pariatur in deserunt ullamco\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Finalize picklist",
+							"id": "52b6609a-4ad4-4367-ab00-abc482c3a7e0",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/picklists/:picklistId/finalize",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"picklists",
+										":picklistId",
+										"finalize"
+									],
+									"variable": [
+										{
+											"id": "00571ca9-460f-4dc8-8d06-97420034665a",
+											"key": "picklistId",
+											"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+											"description": "(Required) Picklist ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "4708aebf-8031-4a99-a225-68c276a0145f",
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/picklists/:picklistId/finalize",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"picklists",
+												":picklistId",
+												"finalize"
+											],
+											"variable": [
+												{
+													"key": "picklistId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Picklist ID"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"data\": {},\n  \"message\": \"Success retrieve data\",\n  \"status\": 200,\n  \"statusText\": \"OK\"\n}"
+								},
+								{
+									"id": "ac8fac5a-2859-4950-aa2a-506037fca39b",
+									"name": "Error Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/picklists/:picklistId/finalize",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"picklists",
+												":picklistId",
+												"finalize"
+											],
+											"variable": [
+												{
+													"key": "picklistId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Picklist ID"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"name\": \"APIClientError\",\n  \"message\": \"Error retrieving data\",\n  \"error\": {\n    \"message\": \"Error retrieving data\"\n  },\n  \"status\": 500,\n  \"statusText\": \"consectetur\"\n}"
+								}
+							]
+						}
+					],
+					"id": "72edb854-0418-42ba-afc3-cfea583cab7d"
+				},
+				{
+					"name": "items/{item Id}",
+					"item": [
+						{
+							"name": "Get picklist item details",
+							"id": "5101d94f-9f4d-40d3-b203-f3d383a92ba7",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/picklists/items/:itemId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"picklists",
+										"items",
+										":itemId"
+									],
+									"variable": [
+										{
+											"id": "2d83e27f-69f4-4487-9388-38810129995d",
+											"key": "itemId",
+											"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+											"description": "(Required) Picklist item ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "8c0e8432-ce69-4806-b799-e14b505cae78",
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/picklists/items/:itemId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"picklists",
+												"items",
+												":itemId"
+											],
+											"variable": [
+												{
+													"key": "itemId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Picklist item ID"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"data\": {\n    \"picklist_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n    \"id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n    \"sku\": \"TEST-ITEM\",\n    \"barcode\": \"TEST-ITEM\",\n    \"zone\": \"Zone 1\",\n    \"is_open_weight\": true,\n    \"order_quantity\": 10,\n    \"actual_quantity\": 10,\n    \"order_weight\": 10,\n    \"actual_weight\": 10,\n    \"order_unit_price\": 10,\n    \"actual_price\": 10,\n    \"tag\": \"TEST-ITEM\",\n    \"status_id\": 1,\n    \"picklist_id_discrete\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n    \"picklist_id_zone\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n    \"image_url\": \"https://example.com/image.jpg\",\n    \"remarks\": \"TEST-ITEM\",\n    \"disposition\": \"TEST-ITEM\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n  },\n  \"message\": \"Success retrieve data\",\n  \"status\": 200,\n  \"statusText\": \"OK\"\n}"
+								},
+								{
+									"id": "48431a94-d46e-4e59-8cea-58e970d6ab31",
+									"name": "Error Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/picklists/items/:itemId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"picklists",
+												"items",
+												":itemId"
+											],
+											"variable": [
+												{
+													"key": "itemId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Picklist item ID"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"name\": \"APIClientError\",\n  \"message\": \"Error retrieving data\",\n  \"error\": {\n    \"message\": \"Error retrieving data\"\n  },\n  \"status\": 500,\n  \"statusText\": \"Duis commodo in in veniam\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update picklist item",
+							"id": "7e24ccce-6765-4c70-bb68-d65631a20fa9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"picklist_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"sku\": \"TEST-ITEM\",\n  \"barcode\": \"TEST-ITEM\",\n  \"zone\": \"Zone 1\",\n  \"is_open_weight\": true,\n  \"order_quantity\": 10,\n  \"actual_quantity\": 10,\n  \"order_weight\": 10,\n  \"actual_weight\": 10,\n  \"order_unit_price\": 10,\n  \"actual_price\": 10,\n  \"tag\": \"TEST-ITEM\",\n  \"status_id\": 1,\n  \"picklist_id_discrete\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"picklist_id_zone\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"image_url\": \"https://example.com/image.jpg\",\n  \"remarks\": \"TEST-ITEM\",\n  \"disposition\": \"TEST-ITEM\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/picklists/items/:itemId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"picklists",
+										"items",
+										":itemId"
+									],
+									"variable": [
+										{
+											"id": "cd0c80db-4753-4fe7-9f3c-aefc33af8be7",
+											"key": "itemId",
+											"value": "laboris ad ipsum labore",
+											"description": "(Required) Picklist item ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "e43d50e6-d72c-4137-98d8-b5785acdb4b8",
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"picklist_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"sku\": \"TEST-ITEM\",\n  \"barcode\": \"TEST-ITEM\",\n  \"zone\": \"Zone 1\",\n  \"is_open_weight\": true,\n  \"order_quantity\": 10,\n  \"actual_quantity\": 10,\n  \"order_weight\": 10,\n  \"actual_weight\": 10,\n  \"order_unit_price\": 10,\n  \"actual_price\": 10,\n  \"tag\": \"TEST-ITEM\",\n  \"status_id\": 1,\n  \"picklist_id_discrete\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"picklist_id_zone\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"image_url\": \"https://example.com/image.jpg\",\n  \"remarks\": \"TEST-ITEM\",\n  \"disposition\": \"TEST-ITEM\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/picklists/items/:itemId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"picklists",
+												"items",
+												":itemId"
+											],
+											"variable": [
+												{
+													"key": "itemId",
+													"value": "laboris ad ipsum labore",
+													"description": "(Required) Picklist item ID"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"data\": {\n    \"picklist_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n    \"id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n    \"sku\": \"TEST-ITEM\",\n    \"barcode\": \"TEST-ITEM\",\n    \"zone\": \"Zone 1\",\n    \"is_open_weight\": true,\n    \"order_quantity\": 10,\n    \"actual_quantity\": 10,\n    \"order_weight\": 10,\n    \"actual_weight\": 10,\n    \"order_unit_price\": 10,\n    \"actual_price\": 10,\n    \"tag\": \"TEST-ITEM\",\n    \"status_id\": 1,\n    \"picklist_id_discrete\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n    \"picklist_id_zone\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n    \"image_url\": \"https://example.com/image.jpg\",\n    \"remarks\": \"TEST-ITEM\",\n    \"disposition\": \"TEST-ITEM\",\n    \"created_at\": \"2019-01-01T00:00:00.000Z\",\n    \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n  },\n  \"message\": \"Success retrieve data\",\n  \"status\": 200,\n  \"statusText\": \"OK\"\n}"
+								},
+								{
+									"id": "98aa6092-8437-4e53-8436-3ce9138dcc6f",
+									"name": "Error Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"picklist_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"sku\": \"TEST-ITEM\",\n  \"barcode\": \"TEST-ITEM\",\n  \"zone\": \"Zone 1\",\n  \"is_open_weight\": true,\n  \"order_quantity\": 10,\n  \"actual_quantity\": 10,\n  \"order_weight\": 10,\n  \"actual_weight\": 10,\n  \"order_unit_price\": 10,\n  \"actual_price\": 10,\n  \"tag\": \"TEST-ITEM\",\n  \"status_id\": 1,\n  \"picklist_id_discrete\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"picklist_id_zone\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n  \"image_url\": \"https://example.com/image.jpg\",\n  \"remarks\": \"TEST-ITEM\",\n  \"disposition\": \"TEST-ITEM\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/picklists/items/:itemId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"picklists",
+												"items",
+												":itemId"
+											],
+											"variable": [
+												{
+													"key": "itemId",
+													"value": "laboris ad ipsum labore",
+													"description": "(Required) Picklist item ID"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"name\": \"APIClientError\",\n  \"message\": \"Error retrieving data\",\n  \"error\": {\n    \"message\": \"Error retrieving data\"\n  },\n  \"status\": 500,\n  \"statusText\": \"nisi non consectetur\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Set picklist item as out of stock",
+							"id": "7cea51b3-db31-4ec3-8e0d-e71d71f0590a",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/picklists/items/:itemId/out-of-stock",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"picklists",
+										"items",
+										":itemId",
+										"out-of-stock"
+									],
+									"variable": [
+										{
+											"id": "b108adb8-9bae-480c-bdb7-3822c5a10263",
+											"key": "itemId",
+											"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+											"description": "(Required) Picklist item ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "fc03ded3-36e9-4a6a-a0fb-e0657c36a0b7",
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/picklists/items/:itemId/out-of-stock",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"picklists",
+												"items",
+												":itemId",
+												"out-of-stock"
+											],
+											"variable": [
+												{
+													"key": "itemId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Picklist item ID"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"data\": {},\n  \"message\": \"Success retrieve data\",\n  \"status\": 200,\n  \"statusText\": \"OK\"\n}"
+								},
+								{
+									"id": "bcda4604-b3c5-451f-a63f-748033a1e91d",
+									"name": "Error Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/picklists/items/:itemId/out-of-stock",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"picklists",
+												"items",
+												":itemId",
+												"out-of-stock"
+											],
+											"variable": [
+												{
+													"key": "itemId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Picklist item ID"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"name\": \"APIClientError\",\n  \"message\": \"Error retrieving data\",\n  \"error\": {\n    \"message\": \"Error retrieving data\"\n  },\n  \"status\": 500,\n  \"statusText\": \"voluptate\"\n}"
+								}
+							]
+						},
+						{
+							"name": "set picklist item as removed",
+							"id": "7af66715-8bde-431c-b005-141dad1e08ea",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/picklists/items/:itemId/remove",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"picklists",
+										"items",
+										":itemId",
+										"remove"
+									],
+									"variable": [
+										{
+											"id": "7113f1e1-943a-4f33-bcb1-6cc83c38199c",
+											"key": "itemId",
+											"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+											"description": "(Required) Picklist item ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "bc256326-78fe-432b-acb4-56a9b5722730",
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/picklists/items/:itemId/remove",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"picklists",
+												"items",
+												":itemId",
+												"remove"
+											],
+											"variable": [
+												{
+													"key": "itemId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Picklist item ID"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"data\": {},\n  \"message\": \"Success retrieve data\",\n  \"status\": 200,\n  \"statusText\": \"OK\"\n}"
+								},
+								{
+									"id": "c02dff52-10db-4dd9-bbd1-f311feebd139",
+									"name": "Error Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/picklists/items/:itemId/remove",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"picklists",
+												"items",
+												":itemId",
+												"remove"
+											],
+											"variable": [
+												{
+													"key": "itemId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Picklist item ID"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"name\": \"APIClientError\",\n  \"message\": \"Error retrieving data\",\n  \"error\": {\n    \"message\": \"Error retrieving data\"\n  },\n  \"status\": 500,\n  \"statusText\": \"voluptate\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update picklist item quantity",
+							"id": "e953e50f-8e39-4fc8-bf73-639dfa829252",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"quantity\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/picklists/items/:itemId/update-quantity",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"picklists",
+										"items",
+										":itemId",
+										"update-quantity"
+									],
+									"variable": [
+										{
+											"id": "d73ebd0a-16d8-498c-b10e-f5377639ff91",
+											"key": "itemId",
+											"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+											"description": "(Required) Picklist item ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "348b976e-96ca-4dbc-96b0-d792ed505155",
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"quantity\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/picklists/items/:itemId/update-quantity",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"picklists",
+												"items",
+												":itemId",
+												"update-quantity"
+											],
+											"variable": [
+												{
+													"key": "itemId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Picklist item ID"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"data\": {},\n  \"message\": \"Success retrieve data\",\n  \"status\": 200,\n  \"statusText\": \"OK\"\n}"
+								},
+								{
+									"id": "4043dbc6-49e7-419d-8954-2b82f97e22e0",
+									"name": "Error Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"quantity\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/picklists/items/:itemId/update-quantity",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"picklists",
+												"items",
+												":itemId",
+												"update-quantity"
+											],
+											"variable": [
+												{
+													"key": "itemId",
+													"value": "urn:uuid:6772a4c7-b2c3-6ffa-3e79-b7d24bd26021",
+													"description": "(Required) Picklist item ID"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"name\": \"APIClientError\",\n  \"message\": \"Error retrieving data\",\n  \"error\": {\n    \"message\": \"Error retrieving data\"\n  },\n  \"status\": 500,\n  \"statusText\": \"sed consequat\"\n}"
+								}
+							]
+						}
+					],
+					"id": "667e83ca-6c9d-4081-bcc7-87fc08796dc7"
+				},
+				{
+					"name": "Get all picklists",
+					"id": "9fcb403a-1cf1-472a-abe3-0fdf1fdc0e5f",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/picklists",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"picklists"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "be715086-1a10-45a4-8d19-ee85bcc2358f",
+							"name": "Success Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/picklists",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"picklists"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"data\": {\n    \"rows\": [\n      {\n        \"order_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"status_id\": -146942,\n        \"picklist_number\": 1,\n        \"delivery_date\": \"2019-01-01T00:00:00.000Z\",\n        \"delivery_time_block_from\": \"2019-01-01T00:00:00.000Z\",\n        \"delivery_time_block_to\": \"2019-01-01T00:00:00.000Z\",\n        \"picked_cost\": 10,\n        \"picked_quantity\": 10,\n        \"zone\": \"Zone 1\",\n        \"assigned_picker_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      },\n      {\n        \"order_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"status_id\": 89156520,\n        \"picklist_number\": 1,\n        \"delivery_date\": \"2019-01-01T00:00:00.000Z\",\n        \"delivery_time_block_from\": \"2019-01-01T00:00:00.000Z\",\n        \"delivery_time_block_to\": \"2019-01-01T00:00:00.000Z\",\n        \"picked_cost\": 10,\n        \"picked_quantity\": 10,\n        \"zone\": \"Zone 1\",\n        \"assigned_picker_id\": \"5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f\",\n        \"created_at\": \"2019-01-01T00:00:00.000Z\",\n        \"updated_at\": \"2019-01-01T00:00:00.000Z\"\n      }\n    ]\n  },\n  \"message\": \"Success retrieve data\",\n  \"status\": 200,\n  \"statusText\": \"OK\"\n}"
+						},
+						{
+							"id": "03ecaffb-c92f-4cbd-84af-afa050aea644",
+							"name": "Error Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/picklists",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"picklists"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"name\": \"APIClientError\",\n  \"message\": \"Error retrieving data\",\n  \"error\": {\n    \"message\": \"Error retrieving data\"\n  },\n  \"status\": 500,\n  \"statusText\": \"ut occaecat\"\n}"
+						}
+					]
+				}
+			],
+			"id": "8e694e54-de3f-4a1b-9b28-5aa3e8075082"
+		}
+	],
+	"variable": [
+		{
+			"id": "ff9bd28c-614a-4b4b-aa25-3ecd8217de56",
+			"key": "baseUrl",
+			"value": "localhost:5000/api",
+			"type": "string"
+		}
+	]
+}

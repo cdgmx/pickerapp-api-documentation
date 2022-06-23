@@ -3,9 +3,7 @@
     "required": [
         "order_number"
     ],
-    "tags": [
-        "order_model"
-    ],
+
     "properties": {
         "id": {
             "type": "string",

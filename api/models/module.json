@@ -3,9 +3,7 @@
     "required": [
         "name"
     ],
-    "tag": [
-        "module_models"
-    ],
+
     "properties": {
         "id": {
             "type": "string",

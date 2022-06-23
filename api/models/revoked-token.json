@@ -3,9 +3,7 @@
               "required": [
                   "token"
               ],
-              "tags": [
-                  "revoked_token_model"
-              ],
+      
               "properties": {
                   "id": {
                       "type": "string",

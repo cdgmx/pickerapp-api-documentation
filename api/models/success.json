@@ -6,9 +6,7 @@
                   "status",
                   "statusText"
               ],
-              "tags": [
-                  "succes_model"
-              ],
+          
               "properties": {
                   "data": {
                       "type": "object",

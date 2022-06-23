@@ -1,0 +1,4 @@
+{
+  "watch": ["api/openapi.json"],
+  "exec": "cd api && node index.js "
+}
