@@ -5463,7 +5463,7 @@
         }
       }
     },
-    "/picklists/:picklistId/scan": {
+    "/picklists/{picklistId}/scan": {
       "put": {
         "summary": "Scan item",
         "operationId": "scanItem",
