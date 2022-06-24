@@ -91,6 +91,12 @@
   ],
   "x-tagGroups": [
     {
+      "name": "Authentication",
+      "tags": [
+        "auth"
+      ]
+    },
+    {
       "name": "User Management",
       "tags": [
         "user"
@@ -131,6 +137,13 @@
       "name": "Picklist Management",
       "tags": [
         "picklist"
+      ]
+    },
+    {
+      "name": "Mobile API",
+      "tags": [
+        "picklist-mobile",
+        "auth-mobile"
       ]
     },
     {
@@ -1158,6 +1171,1322 @@
                             "message": {
                               "type": "string",
                               "example": "Error deleting user"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/initial-login": {
+      "post": {
+        "summary": "Initial login",
+        "operationId": "initialLogin",
+        "tags": [
+          "auth",
+          "auth-mobile"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "Email",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "test@gmail.com"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "description": "Password",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "test"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "data",
+                        "message",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "rows": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Success retrieve data"
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 200
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": "OK"
+                        }
+                      }
+                    },
+                    {
+                      "title": "response of initial login",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "intial login success"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "name",
+                        "message",
+                        "error",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "name of the error",
+                          "example": "APIClientError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Error retrieving data"
+                        },
+                        "error": {
+                          "type": "object",
+                          "example": {
+                            "message": "Error retrieving data"
+                          }
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 500
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": [
+                            "Internal Server Error",
+                            "Bad Request",
+                            "Not Found"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "title": "error response of initial login",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Error initial login"
+                        },
+                        "error": {
+                          "type": "object",
+                          "properties": {
+                            "message": {
+                              "type": "string",
+                              "example": "Error initial login"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "Login",
+        "operationId": "login",
+        "tags": [
+          "auth",
+          "auth-mobile"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "Email",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "test@gmail.com"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "description": "Password",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "test"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "data",
+                        "message",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "rows": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Success retrieve data"
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 200
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": "OK"
+                        }
+                      }
+                    },
+                    {
+                      "title": "response of login",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "'Successfully logged in"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "name",
+                        "message",
+                        "error",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "name of the error",
+                          "example": "APIClientError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Error retrieving data"
+                        },
+                        "error": {
+                          "type": "object",
+                          "example": {
+                            "message": "Error retrieving data"
+                          }
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 500
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": [
+                            "Internal Server Error",
+                            "Bad Request",
+                            "Not Found"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "title": "error response of login",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Error login"
+                        },
+                        "error": {
+                          "type": "object",
+                          "properties": {
+                            "message": {
+                              "type": "string",
+                              "example": "Error login"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "summary": "Register",
+        "operationId": "register",
+        "tags": [
+          "auth",
+          "auth-mobile"
+        ],
+        "requestBody": {
+          "description": "User Details",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "test@gmail.com"
+                  },
+                  "first_name": {
+                    "type": "string",
+                    "example": "My FirstName"
+                  },
+                  "last_name": {
+                    "type": "string",
+                    "example": "My LastName"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "data",
+                        "message",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "rows": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Success retrieve data"
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 200
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": "OK"
+                        }
+                      }
+                    },
+                    {
+                      "title": "response of register",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Successfully registered"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "name",
+                        "message",
+                        "error",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "name of the error",
+                          "example": "APIClientError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Error retrieving data"
+                        },
+                        "error": {
+                          "type": "object",
+                          "example": {
+                            "message": "Error retrieving data"
+                          }
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 500
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": [
+                            "Internal Server Error",
+                            "Bad Request",
+                            "Not Found"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "title": "error response of register",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Error register"
+                        },
+                        "error": {
+                          "type": "object",
+                          "properties": {
+                            "message": {
+                              "type": "string",
+                              "example": "Error register"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "summary": "Logout",
+        "operationId": "logout",
+        "tags": [
+          "auth",
+          "auth-mobile"
+        ],
+        "parameters": [
+          {
+            "name": "access_token",
+            "in": "header",
+            "description": "Token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id_token",
+            "in": "header",
+            "description": "ID Token",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "data",
+                        "message",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "rows": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Success retrieve data"
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 200
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": "OK"
+                        }
+                      }
+                    },
+                    {
+                      "title": "response of logout",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Successfully logged out"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "name",
+                        "message",
+                        "error",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "name of the error",
+                          "example": "APIClientError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Error retrieving data"
+                        },
+                        "error": {
+                          "type": "object",
+                          "example": {
+                            "message": "Error retrieving data"
+                          }
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 500
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": [
+                            "Internal Server Error",
+                            "Bad Request",
+                            "Not Found"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "title": "error response of logout",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Error logout"
+                        },
+                        "error": {
+                          "type": "object",
+                          "properties": {
+                            "message": {
+                              "type": "string",
+                              "example": "Error logout"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/forgot-password": {
+      "post": {
+        "summary": "Forgot Password",
+        "operationId": "forgotPassword",
+        "tags": [
+          "auth",
+          "auth-mobile"
+        ],
+        "requestBody": {
+          "description": "User Details",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "test@gmail.com",
+                    "description": "Email"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "data",
+                        "message",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "rows": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Success retrieve data"
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 200
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": "OK"
+                        }
+                      }
+                    },
+                    {
+                      "title": "response of forgot password",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "You will receive an email with a link to reset your password"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "name",
+                        "message",
+                        "error",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "name of the error",
+                          "example": "APIClientError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Error retrieving data"
+                        },
+                        "error": {
+                          "type": "object",
+                          "example": {
+                            "message": "Error retrieving data"
+                          }
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 500
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": [
+                            "Internal Server Error",
+                            "Bad Request",
+                            "Not Found"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "title": "error response of forgot password",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Error forgot password"
+                        },
+                        "error": {
+                          "type": "object",
+                          "properties": {
+                            "message": {
+                              "type": "string",
+                              "example": "Error forgot password"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/confirm-forgot-password": {
+      "post": {
+        "summary": "Confirm Forgot Password",
+        "operationId": "confirmForgotPassword",
+        "tags": [
+          "auth",
+          "auth-mobile"
+        ],
+        "requestBody": {
+          "description": "User Details",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "test@gmail.com",
+                    "description": "Email"
+                  },
+                  "verification_code": {
+                    "type": "string",
+                    "example": "123456",
+                    "description": "Verification Code"
+                  },
+                  "new_password": {
+                    "type": "string",
+                    "example": "123456",
+                    "description": "New Password"
+                  },
+                  "confirm_password": {
+                    "type": "string",
+                    "example": "123456",
+                    "description": "Confirm Password"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "data",
+                        "message",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "rows": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Success retrieve data"
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 200
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": "OK"
+                        }
+                      }
+                    },
+                    {
+                      "title": "response of confirm forgot password",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Your password has been reset successfully."
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "name",
+                        "message",
+                        "error",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "name of the error",
+                          "example": "APIClientError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Error retrieving data"
+                        },
+                        "error": {
+                          "type": "object",
+                          "example": {
+                            "message": "Error retrieving data"
+                          }
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 500
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": [
+                            "Internal Server Error",
+                            "Bad Request",
+                            "Not Found"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "title": "error response of confirm forgot password",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Error confirm forgot password"
+                        },
+                        "error": {
+                          "type": "object",
+                          "properties": {
+                            "message": {
+                              "type": "string",
+                              "example": "Error confirm forgot password"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/change-password": {
+      "post": {
+        "summary": "Change Password",
+        "operationId": "changePassword",
+        "tags": [
+          "auth",
+          "auth-mobile"
+        ],
+        "parameters": [
+          {
+            "name": "access_token",
+            "in": "header",
+            "description": "Access Token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "User Details",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "old_password": {
+                    "type": "string",
+                    "example": "123456",
+                    "description": "Old Password"
+                  },
+                  "new_password": {
+                    "type": "string",
+                    "example": "123456",
+                    "description": "New Password"
+                  },
+                  "confirm_password": {
+                    "type": "string",
+                    "example": "123456",
+                    "description": "Confirm Password"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "data",
+                        "message",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "rows": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Success retrieve data"
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 200
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": "OK"
+                        }
+                      }
+                    },
+                    {
+                      "title": "response of change password",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "'Password successfully changed."
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "name",
+                        "message",
+                        "error",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "name of the error",
+                          "example": "APIClientError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Error retrieving data"
+                        },
+                        "error": {
+                          "type": "object",
+                          "example": {
+                            "message": "Error retrieving data"
+                          }
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 500
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": [
+                            "Internal Server Error",
+                            "Bad Request",
+                            "Not Found"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "title": "error response of change password",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Error change password"
+                        },
+                        "error": {
+                          "type": "object",
+                          "properties": {
+                            "message": {
+                              "type": "string",
+                              "example": "Error change password"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/verify": {
+      "post": {
+        "summary": "Verify Email",
+        "operationId": "verifyEmail",
+        "tags": [
+          "auth",
+          "auth-mobile"
+        ],
+        "parameters": [
+          {
+            "name": "session",
+            "in": "header",
+            "description": "Session Token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "User Details",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "test@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "123456"
+                  },
+                  "confirm_password": {
+                    "type": "string",
+                    "example": "123456"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "data",
+                        "message",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "rows": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Success retrieve data"
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 200
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": "OK"
+                        }
+                      }
+                    },
+                    {
+                      "title": "response of verify email",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "User information completed."
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "name",
+                        "message",
+                        "error",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "name of the error",
+                          "example": "APIClientError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Error retrieving data"
+                        },
+                        "error": {
+                          "type": "object",
+                          "example": {
+                            "message": "Error retrieving data"
+                          }
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 500
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": [
+                            "Internal Server Error",
+                            "Bad Request",
+                            "Not Found"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "title": "error response of verify email",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Error verify email"
+                        },
+                        "error": {
+                          "type": "object",
+                          "properties": {
+                            "message": {
+                              "type": "string",
+                              "example": "Error verify email"
                             }
                           }
                         }
@@ -2777,63 +4106,63 @@
         "tags": [
           "role"
         ],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "description": "Role object that needs to be added to the store",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "required": [
-                "name"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string",
-                  "format": "uuid",
-                  "readOnly": true,
-                  "description": "Unique identifier of the role",
-                  "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
-                },
-                "name": {
-                  "type": "string",
-                  "description": "Name of the role",
-                  "example": "Admin"
-                },
-                "is_active": {
-                  "type": "boolean",
-                  "description": "If the role is active",
-                  "example": true
-                },
-                "is_admin": {
-                  "type": "boolean",
-                  "description": "If the role is admin",
-                  "example": true
-                },
-                "remarks": {
-                  "type": "string",
-                  "description": "Remarks of the role",
-                  "example": "Admin role"
-                },
-                "created_at": {
-                  "type": "string",
-                  "format": "date-time",
-                  "readOnly": true,
-                  "description": "Date and time when the role was created",
-                  "example": "2019-01-01T00:00:00.000Z"
-                },
-                "updated_at": {
-                  "type": "string",
-                  "format": "date-time",
-                  "readOnly": true,
-                  "description": "Date and time when the role was updated",
-                  "example": "2019-01-01T00:00:00.000Z"
+        "requestBody": {
+          "description": "Role object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "readOnly": true,
+                    "description": "Unique identifier of the role",
+                    "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the role",
+                    "example": "Admin"
+                  },
+                  "is_active": {
+                    "type": "boolean",
+                    "description": "If the role is active",
+                    "example": true
+                  },
+                  "is_admin": {
+                    "type": "boolean",
+                    "description": "If the role is admin",
+                    "example": true
+                  },
+                  "remarks": {
+                    "type": "string",
+                    "description": "Remarks of the role",
+                    "example": "Admin role"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "description": "Date and time when the role was created",
+                    "example": "2019-01-01T00:00:00.000Z"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "description": "Date and time when the role was updated",
+                    "example": "2019-01-01T00:00:00.000Z"
+                  }
                 }
               }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "Success Response",
@@ -3649,94 +4978,94 @@
         "tags": [
           "branding"
         ],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "description": "Branding object that needs to be created in the store",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "required": [
-                "name"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string",
-                  "format": "uuid",
-                  "readOnly": true,
-                  "description": "Unique identifier of the branding",
-                  "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
-                },
-                "background_color": {
-                  "type": "string",
-                  "description": "Background color of the branding",
-                  "example": "#000000"
-                },
-                "sidebar_bg_color": {
-                  "type": "string",
-                  "description": "Sidebar background color of the branding",
-                  "example": "#000000"
-                },
-                "sidebar_selected_bg_color": {
-                  "type": "string",
-                  "description": "Sidebar selected background color of the branding",
-                  "example": "#000000"
-                },
-                "sidebar_selected_font_color": {
-                  "type": "string",
-                  "description": "Sidebar selected font color of the branding",
-                  "example": "#000000"
-                },
-                "sidebar_font_color": {
-                  "type": "string",
-                  "description": "Sidebar font color of the branding",
-                  "example": "#000000"
-                },
-                "header_bg_color": {
-                  "type": "string",
-                  "description": "Header background color of the branding",
-                  "example": "#000000"
-                },
-                "header_font_color": {
-                  "type": "string",
-                  "description": "Header font color of the branding",
-                  "example": "#000000"
-                },
-                "icon_web_url": {
-                  "type": "string",
-                  "description": "Icon web url of the branding",
-                  "example": "https://www.logomaker.com/wpstatic/uploads/2021/10/LogoMaker.jpg"
-                },
-                "icon_mobile_url": {
-                  "type": "string",
-                  "description": "Icon mobile url of the branding",
-                  "example": "https://www.logomaker.com/wpstatic/uploads/2021/10/LogoMaker.jpg"
-                },
-                "merchant_id": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "Unique identifier of the merchant",
-                  "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
-                },
-                "created_at": {
-                  "type": "string",
-                  "format": "date-time",
-                  "readOnly": true,
-                  "description": "Date and time when the branding was created",
-                  "example": "2019-01-01T00:00:00.000Z"
-                },
-                "updated_at": {
-                  "type": "string",
-                  "format": "date-time",
-                  "readOnly": true,
-                  "description": "Date and time when the branding was updated",
-                  "example": "2019-01-01T00:00:00.000Z"
+        "requestBody": {
+          "description": "Branding object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "readOnly": true,
+                    "description": "Unique identifier of the branding",
+                    "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
+                  },
+                  "background_color": {
+                    "type": "string",
+                    "description": "Background color of the branding",
+                    "example": "#000000"
+                  },
+                  "sidebar_bg_color": {
+                    "type": "string",
+                    "description": "Sidebar background color of the branding",
+                    "example": "#000000"
+                  },
+                  "sidebar_selected_bg_color": {
+                    "type": "string",
+                    "description": "Sidebar selected background color of the branding",
+                    "example": "#000000"
+                  },
+                  "sidebar_selected_font_color": {
+                    "type": "string",
+                    "description": "Sidebar selected font color of the branding",
+                    "example": "#000000"
+                  },
+                  "sidebar_font_color": {
+                    "type": "string",
+                    "description": "Sidebar font color of the branding",
+                    "example": "#000000"
+                  },
+                  "header_bg_color": {
+                    "type": "string",
+                    "description": "Header background color of the branding",
+                    "example": "#000000"
+                  },
+                  "header_font_color": {
+                    "type": "string",
+                    "description": "Header font color of the branding",
+                    "example": "#000000"
+                  },
+                  "icon_web_url": {
+                    "type": "string",
+                    "description": "Icon web url of the branding",
+                    "example": "https://www.logomaker.com/wpstatic/uploads/2021/10/LogoMaker.jpg"
+                  },
+                  "icon_mobile_url": {
+                    "type": "string",
+                    "description": "Icon mobile url of the branding",
+                    "example": "https://www.logomaker.com/wpstatic/uploads/2021/10/LogoMaker.jpg"
+                  },
+                  "merchant_id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Unique identifier of the merchant",
+                    "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "description": "Date and time when the branding was created",
+                    "example": "2019-01-01T00:00:00.000Z"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "description": "Date and time when the branding was updated",
+                    "example": "2019-01-01T00:00:00.000Z"
+                  }
                 }
               }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "Success Response",
@@ -4485,6 +5814,8 @@
           "merchant"
         ],
         "requestBody": {
+          "description": "Merchant object",
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -5627,90 +6958,90 @@
         "tags": [
           "module"
         ],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "description": "Module object that needs to be created in the store",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "required": [
-                "name"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string",
-                  "format": "uuid",
-                  "readOnly": true,
-                  "description": "Unique identifier of the module",
-                  "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
-                },
-                "name": {
-                  "type": "string",
-                  "description": "Name of the module",
-                  "example": "Branch Module"
-                },
-                "uri": {
-                  "type": "string",
-                  "description": "Uri of the module",
-                  "example": "branch"
-                },
-                "order": {
-                  "type": "integer",
-                  "description": "Order of the module",
-                  "example": 1
-                },
-                "parent_id": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "Unique identifier of the parent module",
-                  "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
-                },
-                "is_create_enabled_non_admin": {
-                  "type": "boolean",
-                  "description": "If the module is create enabled non admin",
-                  "example": true
-                },
-                "is_update_enabled_non_admin": {
-                  "type": "boolean",
-                  "description": "If the module is update enabled non admin",
-                  "example": true
-                },
-                "is_retrieve_enabled_non_admin": {
-                  "type": "boolean",
-                  "description": "If the module is retrieve enabled non admin",
-                  "example": true
-                },
-                "is_export_enabled_non_admin": {
-                  "type": "boolean",
-                  "description": "If the module is export enabled non admin",
-                  "example": true
-                },
-                "is_create_enabled_admin": {
-                  "type": "boolean",
-                  "description": "If the module is create enabled admin",
-                  "example": true
-                },
-                "is_update_enabled_admin": {
-                  "type": "boolean",
-                  "description": "If the module is update enabled admin",
-                  "example": true
-                },
-                "is_retrieve_enabled_admin": {
-                  "type": "boolean",
-                  "description": "If the module is retrieve enabled admin",
-                  "example": true
-                },
-                "is_export_enabled_admin": {
-                  "type": "boolean",
-                  "description": "If the module is export enabled admin",
-                  "example": true
+        "requestBody": {
+          "description": "Module object that required to create a new module",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "readOnly": true,
+                    "description": "Unique identifier of the module",
+                    "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the module",
+                    "example": "Branch Module"
+                  },
+                  "uri": {
+                    "type": "string",
+                    "description": "Uri of the module",
+                    "example": "branch"
+                  },
+                  "order": {
+                    "type": "integer",
+                    "description": "Order of the module",
+                    "example": 1
+                  },
+                  "parent_id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Unique identifier of the parent module",
+                    "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
+                  },
+                  "is_create_enabled_non_admin": {
+                    "type": "boolean",
+                    "description": "If the module is create enabled non admin",
+                    "example": true
+                  },
+                  "is_update_enabled_non_admin": {
+                    "type": "boolean",
+                    "description": "If the module is update enabled non admin",
+                    "example": true
+                  },
+                  "is_retrieve_enabled_non_admin": {
+                    "type": "boolean",
+                    "description": "If the module is retrieve enabled non admin",
+                    "example": true
+                  },
+                  "is_export_enabled_non_admin": {
+                    "type": "boolean",
+                    "description": "If the module is export enabled non admin",
+                    "example": true
+                  },
+                  "is_create_enabled_admin": {
+                    "type": "boolean",
+                    "description": "If the module is create enabled admin",
+                    "example": true
+                  },
+                  "is_update_enabled_admin": {
+                    "type": "boolean",
+                    "description": "If the module is update enabled admin",
+                    "example": true
+                  },
+                  "is_retrieve_enabled_admin": {
+                    "type": "boolean",
+                    "description": "If the module is retrieve enabled admin",
+                    "example": true
+                  },
+                  "is_export_enabled_admin": {
+                    "type": "boolean",
+                    "description": "If the module is export enabled admin",
+                    "example": true
+                  }
                 }
               }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "Success Response",
@@ -7983,7 +9314,8 @@
         "summary": "Get all picklists",
         "operationId": "getAllPicklists",
         "tags": [
-          "picklist"
+          "picklist",
+          "picklist-mobile"
         ],
         "responses": {
           "200": {
@@ -8207,7 +9539,8 @@
         "summary": "Get picklist details",
         "operationId": "getPicklistDetails",
         "tags": [
-          "picklist"
+          "picklist",
+          "picklist-mobile"
         ],
         "parameters": [
           {
@@ -8435,7 +9768,8 @@
         "summary": "Get picklist items",
         "operationId": "getPicklistItems",
         "tags": [
-          "picklist"
+          "picklist",
+          "picklist-mobile"
         ],
         "parameters": [
           {
@@ -8710,7 +10044,8 @@
         "summary": "Get picklist item details",
         "operationId": "getPicklistItemDetails",
         "tags": [
-          "picklist"
+          "picklist",
+          "picklist-mobile"
         ],
         "parameters": [
           {
@@ -8966,7 +10301,8 @@
         "summary": "Update picklist item",
         "operationId": "updatePicklistItem",
         "tags": [
-          "picklist"
+          "picklist",
+          "picklist-mobile"
         ],
         "parameters": [
           {
@@ -9351,7 +10687,8 @@
         "summary": "Start picking",
         "operationId": "startPicking",
         "tags": [
-          "picklist"
+          "picklist",
+          "picklist-mobile"
         ],
         "parameters": [
           {
@@ -9491,7 +10828,8 @@
         "summary": "Set picklist item as out of stock",
         "operationId": "setPicklistItemOutOfStock",
         "tags": [
-          "picklist"
+          "picklist",
+          "picklist-mobile"
         ],
         "parameters": [
           {
@@ -9631,7 +10969,8 @@
         "summary": "set picklist item as removed",
         "operationId": "setPicklistItemRemoved",
         "tags": [
-          "picklist"
+          "picklist",
+          "picklist-mobile"
         ],
         "parameters": [
           {
@@ -9771,7 +11110,8 @@
         "summary": "Update picklist item quantity",
         "operationId": "updatePicklistItemQuantity",
         "tags": [
-          "picklist"
+          "picklist",
+          "picklist-mobile"
         ],
         "parameters": [
           {
@@ -9926,7 +11266,8 @@
         "summary": "Park picklist",
         "operationId": "parkPicklist",
         "tags": [
-          "picklist"
+          "picklist",
+          "picklist-mobile"
         ],
         "parameters": [
           {
@@ -10066,7 +11407,8 @@
         "summary": "Stage picklist",
         "operationId": "stagePicklist",
         "tags": [
-          "picklist"
+          "picklist",
+          "picklist-mobile"
         ],
         "parameters": [
           {
@@ -10206,7 +11548,8 @@
         "summary": "Finalize picklist",
         "operationId": "finalizePicklist",
         "tags": [
-          "picklist"
+          "picklist",
+          "picklist-mobile"
         ],
         "parameters": [
           {
@@ -10346,7 +11689,8 @@
         "summary": "Update picklist picker",
         "operationId": "updatePicker",
         "tags": [
-          "picklist"
+          "picklist",
+          "picklist-mobile"
         ],
         "parameters": [
           {
@@ -10500,7 +11844,8 @@
         "summary": "Scan item",
         "operationId": "scanItem",
         "tags": [
-          "picklist"
+          "picklist",
+          "picklist-mobile"
         ],
         "parameters": [
           {
@@ -10658,7 +12003,8 @@
         "summary": "Consolidate all picklists",
         "operationId": "consolidatePicklists",
         "tags": [
-          "picklist"
+          "picklist",
+          "picklist-mobile"
         ],
         "requestBody": {
           "content": {
