@@ -1689,7 +1689,10 @@
             "name": "id_token",
             "in": "header",
             "description": "ID Token",
-            "required": true
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -3055,6 +3058,245 @@
             }
           }
         }
+      }
+    },
+    "/branch/{id}": {
+      "get": {
+        "summary": "Get branch detils",
+        "operationId": "getBranch",
+        "tags": [
+          "branch"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Branch ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "data",
+                        "message",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "rows": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Success retrieve data"
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 200
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": "OK"
+                        }
+                      }
+                    },
+                    {
+                      "title": "response of getting a branch",
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "required": [
+                            "name"
+                          ],
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "format": "uuid",
+                              "readOnly": true,
+                              "description": "Unique identifier of the branch",
+                              "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "Name of the branch",
+                              "example": "Laguna Hills"
+                            },
+                            "contact_person": {
+                              "type": "string",
+                              "description": "Name of the contact person",
+                              "example": "John Doe"
+                            },
+                            "contact_number": {
+                              "type": "string",
+                              "description": "Contact number of the branch",
+                              "example": "09123456789"
+                            },
+                            "email": {
+                              "type": "string",
+                              "description": "Email address of the branch",
+                              "example": "test@gmail.com"
+                            },
+                            "address": {
+                              "type": "string",
+                              "description": "Address of the branch",
+                              "example": "Lawa, Calamba, Laguna"
+                            },
+                            "barangay": {
+                              "type": "string",
+                              "description": "Barangay of the branch",
+                              "example": "Lawa"
+                            },
+                            "municipality": {
+                              "type": "string",
+                              "description": "Municipality of the branch",
+                              "example": "Calamba"
+                            },
+                            "province": {
+                              "type": "string",
+                              "description": "Province of the branch",
+                              "example": "Laguna"
+                            },
+                            "region": {
+                              "type": "string",
+                              "description": "Region of the branch",
+                              "example": "CALABARZON"
+                            },
+                            "zip_code": {
+                              "type": "integer",
+                              "description": "Zip code of the branch",
+                              "example": "1605"
+                            },
+                            "country": {
+                              "type": "string",
+                              "description": "Country of the branch",
+                              "example": "Philippines"
+                            },
+                            "is_active": {
+                              "type": "boolean",
+                              "description": "If the branch is active",
+                              "example": true
+                            },
+                            "remarks": {
+                              "type": "string",
+                              "description": "Remarks of the branch",
+                              "example": "Laguna Hills branch"
+                            },
+                            "created_at": {
+                              "type": "string",
+                              "format": "date-time",
+                              "readOnly": true,
+                              "description": "Date and time when the branch was created",
+                              "example": "2019-01-01T00:00:00.000Z"
+                            },
+                            "updated_at": {
+                              "type": "string",
+                              "format": "date-time",
+                              "readOnly": true,
+                              "description": "Date and time when the branch was updated",
+                              "example": "2019-01-01T00:00:00.000Z"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "name",
+                        "message",
+                        "error",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "name of the error",
+                          "example": "APIClientError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Error retrieving data"
+                        },
+                        "error": {
+                          "type": "object",
+                          "example": {
+                            "message": "Error retrieving data"
+                          }
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 500
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": [
+                            "Internal Server Error",
+                            "Bad Request",
+                            "Not Found"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "title": "error response of getting a branch",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Error getting branch"
+                        },
+                        "error": {
+                          "type": "object",
+                          "properties": {
+                            "message": {
+                              "type": "string",
+                              "example": "Error getting branch"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
       },
       "put": {
         "summary": "Update a branch",
@@ -3383,245 +3625,6 @@
                             "message": {
                               "type": "string",
                               "example": "Error updating branch"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/branch/{id}": {
-      "get": {
-        "summary": "Get branch detils",
-        "operationId": "getBranch",
-        "tags": [
-          "branch"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Branch ID",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "type": "object",
-                      "required": [
-                        "data",
-                        "message",
-                        "status",
-                        "statusText"
-                      ],
-                      "properties": {
-                        "data": {
-                          "type": "object",
-                          "properties": {
-                            "rows": {
-                              "type": "array",
-                              "items": {
-                                "type": "object"
-                              }
-                            }
-                          }
-                        },
-                        "message": {
-                          "type": "string",
-                          "example": "Success retrieve data"
-                        },
-                        "status": {
-                          "type": "integer",
-                          "format": "int32",
-                          "example": 200
-                        },
-                        "statusText": {
-                          "type": "string",
-                          "example": "OK"
-                        }
-                      }
-                    },
-                    {
-                      "title": "response of getting a branch",
-                      "type": "object",
-                      "properties": {
-                        "data": {
-                          "type": "object",
-                          "required": [
-                            "name"
-                          ],
-                          "properties": {
-                            "id": {
-                              "type": "string",
-                              "format": "uuid",
-                              "readOnly": true,
-                              "description": "Unique identifier of the branch",
-                              "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
-                            },
-                            "name": {
-                              "type": "string",
-                              "description": "Name of the branch",
-                              "example": "Laguna Hills"
-                            },
-                            "contact_person": {
-                              "type": "string",
-                              "description": "Name of the contact person",
-                              "example": "John Doe"
-                            },
-                            "contact_number": {
-                              "type": "string",
-                              "description": "Contact number of the branch",
-                              "example": "09123456789"
-                            },
-                            "email": {
-                              "type": "string",
-                              "description": "Email address of the branch",
-                              "example": "test@gmail.com"
-                            },
-                            "address": {
-                              "type": "string",
-                              "description": "Address of the branch",
-                              "example": "Lawa, Calamba, Laguna"
-                            },
-                            "barangay": {
-                              "type": "string",
-                              "description": "Barangay of the branch",
-                              "example": "Lawa"
-                            },
-                            "municipality": {
-                              "type": "string",
-                              "description": "Municipality of the branch",
-                              "example": "Calamba"
-                            },
-                            "province": {
-                              "type": "string",
-                              "description": "Province of the branch",
-                              "example": "Laguna"
-                            },
-                            "region": {
-                              "type": "string",
-                              "description": "Region of the branch",
-                              "example": "CALABARZON"
-                            },
-                            "zip_code": {
-                              "type": "integer",
-                              "description": "Zip code of the branch",
-                              "example": "1605"
-                            },
-                            "country": {
-                              "type": "string",
-                              "description": "Country of the branch",
-                              "example": "Philippines"
-                            },
-                            "is_active": {
-                              "type": "boolean",
-                              "description": "If the branch is active",
-                              "example": true
-                            },
-                            "remarks": {
-                              "type": "string",
-                              "description": "Remarks of the branch",
-                              "example": "Laguna Hills branch"
-                            },
-                            "created_at": {
-                              "type": "string",
-                              "format": "date-time",
-                              "readOnly": true,
-                              "description": "Date and time when the branch was created",
-                              "example": "2019-01-01T00:00:00.000Z"
-                            },
-                            "updated_at": {
-                              "type": "string",
-                              "format": "date-time",
-                              "readOnly": true,
-                              "description": "Date and time when the branch was updated",
-                              "example": "2019-01-01T00:00:00.000Z"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "type": "object",
-                      "required": [
-                        "name",
-                        "message",
-                        "error",
-                        "status",
-                        "statusText"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": "string",
-                          "description": "name of the error",
-                          "example": "APIClientError"
-                        },
-                        "message": {
-                          "type": "string",
-                          "example": "Error retrieving data"
-                        },
-                        "error": {
-                          "type": "object",
-                          "example": {
-                            "message": "Error retrieving data"
-                          }
-                        },
-                        "status": {
-                          "type": "integer",
-                          "format": "int32",
-                          "example": 500
-                        },
-                        "statusText": {
-                          "type": "string",
-                          "example": [
-                            "Internal Server Error",
-                            "Bad Request",
-                            "Not Found"
-                          ]
-                        }
-                      }
-                    },
-                    {
-                      "title": "error response of getting a branch",
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "example": "Error getting branch"
-                        },
-                        "error": {
-                          "type": "object",
-                          "properties": {
-                            "message": {
-                              "type": "string",
-                              "example": "Error getting branch"
                             }
                           }
                         }
@@ -4336,253 +4339,6 @@
             }
           }
         }
-      },
-      "put": {
-        "summary": "Update a role",
-        "operationId": "updateRole",
-        "tags": [
-          "role"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Role ID",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "description": "Role object that needs to be updated in the store",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "required": [
-                "name"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string",
-                  "format": "uuid",
-                  "readOnly": true,
-                  "description": "Unique identifier of the role",
-                  "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
-                },
-                "name": {
-                  "type": "string",
-                  "description": "Name of the role",
-                  "example": "Admin"
-                },
-                "is_active": {
-                  "type": "boolean",
-                  "description": "If the role is active",
-                  "example": true
-                },
-                "is_admin": {
-                  "type": "boolean",
-                  "description": "If the role is admin",
-                  "example": true
-                },
-                "remarks": {
-                  "type": "string",
-                  "description": "Remarks of the role",
-                  "example": "Admin role"
-                },
-                "created_at": {
-                  "type": "string",
-                  "format": "date-time",
-                  "readOnly": true,
-                  "description": "Date and time when the role was created",
-                  "example": "2019-01-01T00:00:00.000Z"
-                },
-                "updated_at": {
-                  "type": "string",
-                  "format": "date-time",
-                  "readOnly": true,
-                  "description": "Date and time when the role was updated",
-                  "example": "2019-01-01T00:00:00.000Z"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "type": "object",
-                      "required": [
-                        "data",
-                        "message",
-                        "status",
-                        "statusText"
-                      ],
-                      "properties": {
-                        "data": {
-                          "type": "object",
-                          "properties": {
-                            "rows": {
-                              "type": "array",
-                              "items": {
-                                "type": "object"
-                              }
-                            }
-                          }
-                        },
-                        "message": {
-                          "type": "string",
-                          "example": "Success retrieve data"
-                        },
-                        "status": {
-                          "type": "integer",
-                          "format": "int32",
-                          "example": 200
-                        },
-                        "statusText": {
-                          "type": "string",
-                          "example": "OK"
-                        }
-                      }
-                    },
-                    {
-                      "title": "response of updating a role",
-                      "type": "object",
-                      "properties": {
-                        "data": {
-                          "type": "object",
-                          "required": [
-                            "name"
-                          ],
-                          "properties": {
-                            "id": {
-                              "type": "string",
-                              "format": "uuid",
-                              "readOnly": true,
-                              "description": "Unique identifier of the role",
-                              "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
-                            },
-                            "name": {
-                              "type": "string",
-                              "description": "Name of the role",
-                              "example": "Admin"
-                            },
-                            "is_active": {
-                              "type": "boolean",
-                              "description": "If the role is active",
-                              "example": true
-                            },
-                            "is_admin": {
-                              "type": "boolean",
-                              "description": "If the role is admin",
-                              "example": true
-                            },
-                            "remarks": {
-                              "type": "string",
-                              "description": "Remarks of the role",
-                              "example": "Admin role"
-                            },
-                            "created_at": {
-                              "type": "string",
-                              "format": "date-time",
-                              "readOnly": true,
-                              "description": "Date and time when the role was created",
-                              "example": "2019-01-01T00:00:00.000Z"
-                            },
-                            "updated_at": {
-                              "type": "string",
-                              "format": "date-time",
-                              "readOnly": true,
-                              "description": "Date and time when the role was updated",
-                              "example": "2019-01-01T00:00:00.000Z"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "type": "object",
-                      "required": [
-                        "name",
-                        "message",
-                        "error",
-                        "status",
-                        "statusText"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": "string",
-                          "description": "name of the error",
-                          "example": "APIClientError"
-                        },
-                        "message": {
-                          "type": "string",
-                          "example": "Error retrieving data"
-                        },
-                        "error": {
-                          "type": "object",
-                          "example": {
-                            "message": "Error retrieving data"
-                          }
-                        },
-                        "status": {
-                          "type": "integer",
-                          "format": "int32",
-                          "example": 500
-                        },
-                        "statusText": {
-                          "type": "string",
-                          "example": [
-                            "Internal Server Error",
-                            "Bad Request",
-                            "Not Found"
-                          ]
-                        }
-                      }
-                    },
-                    {
-                      "title": "error response of updating a role",
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "example": "Error updating role"
-                        },
-                        "error": {
-                          "type": "object",
-                          "properties": {
-                            "message": {
-                              "type": "string",
-                              "example": "Error updating role"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        }
       }
     },
     "/role/{id}": {
@@ -4766,6 +4522,255 @@
                             "message": {
                               "type": "string",
                               "example": "Error getting role details"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a role",
+        "operationId": "updateRole",
+        "tags": [
+          "role"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Role ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Role object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "readOnly": true,
+                    "description": "Unique identifier of the role",
+                    "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the role",
+                    "example": "Admin"
+                  },
+                  "is_active": {
+                    "type": "boolean",
+                    "description": "If the role is active",
+                    "example": true
+                  },
+                  "is_admin": {
+                    "type": "boolean",
+                    "description": "If the role is admin",
+                    "example": true
+                  },
+                  "remarks": {
+                    "type": "string",
+                    "description": "Remarks of the role",
+                    "example": "Admin role"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "description": "Date and time when the role was created",
+                    "example": "2019-01-01T00:00:00.000Z"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "description": "Date and time when the role was updated",
+                    "example": "2019-01-01T00:00:00.000Z"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "data",
+                        "message",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "rows": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Success retrieve data"
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 200
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": "OK"
+                        }
+                      }
+                    },
+                    {
+                      "title": "response of updating a role",
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "required": [
+                            "name"
+                          ],
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "format": "uuid",
+                              "readOnly": true,
+                              "description": "Unique identifier of the role",
+                              "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "Name of the role",
+                              "example": "Admin"
+                            },
+                            "is_active": {
+                              "type": "boolean",
+                              "description": "If the role is active",
+                              "example": true
+                            },
+                            "is_admin": {
+                              "type": "boolean",
+                              "description": "If the role is admin",
+                              "example": true
+                            },
+                            "remarks": {
+                              "type": "string",
+                              "description": "Remarks of the role",
+                              "example": "Admin role"
+                            },
+                            "created_at": {
+                              "type": "string",
+                              "format": "date-time",
+                              "readOnly": true,
+                              "description": "Date and time when the role was created",
+                              "example": "2019-01-01T00:00:00.000Z"
+                            },
+                            "updated_at": {
+                              "type": "string",
+                              "format": "date-time",
+                              "readOnly": true,
+                              "description": "Date and time when the role was updated",
+                              "example": "2019-01-01T00:00:00.000Z"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "name",
+                        "message",
+                        "error",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "name of the error",
+                          "example": "APIClientError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Error retrieving data"
+                        },
+                        "error": {
+                          "type": "object",
+                          "example": {
+                            "message": "Error retrieving data"
+                          }
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 500
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": [
+                            "Internal Server Error",
+                            "Bad Request",
+                            "Not Found"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "title": "error response of updating a role",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Error updating role"
+                        },
+                        "error": {
+                          "type": "object",
+                          "properties": {
+                            "message": {
+                              "type": "string",
+                              "example": "Error updating role"
                             }
                           }
                         }
@@ -5512,301 +5517,303 @@
               "type": "string",
               "format": "uuid"
             }
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "description": "Branding object that needs to be updated in the store",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "required": [
-                "name"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string",
-                  "format": "uuid",
-                  "readOnly": true,
-                  "description": "Unique identifier of the branding",
-                  "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
-                },
-                "background_color": {
-                  "type": "string",
-                  "description": "Background color of the branding",
-                  "example": "#000000"
-                },
-                "sidebar_bg_color": {
-                  "type": "string",
-                  "description": "Sidebar background color of the branding",
-                  "example": "#000000"
-                },
-                "sidebar_selected_bg_color": {
-                  "type": "string",
-                  "description": "Sidebar selected background color of the branding",
-                  "example": "#000000"
-                },
-                "sidebar_selected_font_color": {
-                  "type": "string",
-                  "description": "Sidebar selected font color of the branding",
-                  "example": "#000000"
-                },
-                "sidebar_font_color": {
-                  "type": "string",
-                  "description": "Sidebar font color of the branding",
-                  "example": "#000000"
-                },
-                "header_bg_color": {
-                  "type": "string",
-                  "description": "Header background color of the branding",
-                  "example": "#000000"
-                },
-                "header_font_color": {
-                  "type": "string",
-                  "description": "Header font color of the branding",
-                  "example": "#000000"
-                },
-                "icon_web_url": {
-                  "type": "string",
-                  "description": "Icon web url of the branding",
-                  "example": "https://www.logomaker.com/wpstatic/uploads/2021/10/LogoMaker.jpg"
-                },
-                "icon_mobile_url": {
-                  "type": "string",
-                  "description": "Icon mobile url of the branding",
-                  "example": "https://www.logomaker.com/wpstatic/uploads/2021/10/LogoMaker.jpg"
-                },
-                "merchant_id": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "Unique identifier of the merchant",
-                  "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
-                },
-                "created_at": {
-                  "type": "string",
-                  "format": "date-time",
-                  "readOnly": true,
-                  "description": "Date and time when the branding was created",
-                  "example": "2019-01-01T00:00:00.000Z"
-                },
-                "updated_at": {
-                  "type": "string",
-                  "format": "date-time",
-                  "readOnly": true,
-                  "description": "Date and time when the branding was updated",
-                  "example": "2019-01-01T00:00:00.000Z"
+          }
+        ],
+        "requestBody": {
+          "description": "Branding object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "readOnly": true,
+                    "description": "Unique identifier of the branding",
+                    "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
+                  },
+                  "background_color": {
+                    "type": "string",
+                    "description": "Background color of the branding",
+                    "example": "#000000"
+                  },
+                  "sidebar_bg_color": {
+                    "type": "string",
+                    "description": "Sidebar background color of the branding",
+                    "example": "#000000"
+                  },
+                  "sidebar_selected_bg_color": {
+                    "type": "string",
+                    "description": "Sidebar selected background color of the branding",
+                    "example": "#000000"
+                  },
+                  "sidebar_selected_font_color": {
+                    "type": "string",
+                    "description": "Sidebar selected font color of the branding",
+                    "example": "#000000"
+                  },
+                  "sidebar_font_color": {
+                    "type": "string",
+                    "description": "Sidebar font color of the branding",
+                    "example": "#000000"
+                  },
+                  "header_bg_color": {
+                    "type": "string",
+                    "description": "Header background color of the branding",
+                    "example": "#000000"
+                  },
+                  "header_font_color": {
+                    "type": "string",
+                    "description": "Header font color of the branding",
+                    "example": "#000000"
+                  },
+                  "icon_web_url": {
+                    "type": "string",
+                    "description": "Icon web url of the branding",
+                    "example": "https://www.logomaker.com/wpstatic/uploads/2021/10/LogoMaker.jpg"
+                  },
+                  "icon_mobile_url": {
+                    "type": "string",
+                    "description": "Icon mobile url of the branding",
+                    "example": "https://www.logomaker.com/wpstatic/uploads/2021/10/LogoMaker.jpg"
+                  },
+                  "merchant_id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Unique identifier of the merchant",
+                    "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "description": "Date and time when the branding was created",
+                    "example": "2019-01-01T00:00:00.000Z"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "description": "Date and time when the branding was updated",
+                    "example": "2019-01-01T00:00:00.000Z"
+                  }
                 }
               }
             }
           }
-        ]
-      },
-      "responses": {
-        "200": {
-          "description": "Success Response",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "type": "object",
-                    "required": [
-                      "data",
-                      "message",
-                      "status",
-                      "statusText"
-                    ],
-                    "properties": {
-                      "data": {
-                        "type": "object",
-                        "properties": {
-                          "rows": {
-                            "type": "array",
-                            "items": {
-                              "type": "object"
+        },
+        "responses": {
+          "200": {
+            "description": "Success Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "data",
+                        "message",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "rows": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Success retrieve data"
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 200
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": "OK"
+                        }
+                      }
+                    },
+                    {
+                      "title": "response of updating a branding",
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "required": [
+                            "name"
+                          ],
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "format": "uuid",
+                              "readOnly": true,
+                              "description": "Unique identifier of the branding",
+                              "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
+                            },
+                            "background_color": {
+                              "type": "string",
+                              "description": "Background color of the branding",
+                              "example": "#000000"
+                            },
+                            "sidebar_bg_color": {
+                              "type": "string",
+                              "description": "Sidebar background color of the branding",
+                              "example": "#000000"
+                            },
+                            "sidebar_selected_bg_color": {
+                              "type": "string",
+                              "description": "Sidebar selected background color of the branding",
+                              "example": "#000000"
+                            },
+                            "sidebar_selected_font_color": {
+                              "type": "string",
+                              "description": "Sidebar selected font color of the branding",
+                              "example": "#000000"
+                            },
+                            "sidebar_font_color": {
+                              "type": "string",
+                              "description": "Sidebar font color of the branding",
+                              "example": "#000000"
+                            },
+                            "header_bg_color": {
+                              "type": "string",
+                              "description": "Header background color of the branding",
+                              "example": "#000000"
+                            },
+                            "header_font_color": {
+                              "type": "string",
+                              "description": "Header font color of the branding",
+                              "example": "#000000"
+                            },
+                            "icon_web_url": {
+                              "type": "string",
+                              "description": "Icon web url of the branding",
+                              "example": "https://www.logomaker.com/wpstatic/uploads/2021/10/LogoMaker.jpg"
+                            },
+                            "icon_mobile_url": {
+                              "type": "string",
+                              "description": "Icon mobile url of the branding",
+                              "example": "https://www.logomaker.com/wpstatic/uploads/2021/10/LogoMaker.jpg"
+                            },
+                            "merchant_id": {
+                              "type": "string",
+                              "format": "uuid",
+                              "description": "Unique identifier of the merchant",
+                              "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
+                            },
+                            "created_at": {
+                              "type": "string",
+                              "format": "date-time",
+                              "readOnly": true,
+                              "description": "Date and time when the branding was created",
+                              "example": "2019-01-01T00:00:00.000Z"
+                            },
+                            "updated_at": {
+                              "type": "string",
+                              "format": "date-time",
+                              "readOnly": true,
+                              "description": "Date and time when the branding was updated",
+                              "example": "2019-01-01T00:00:00.000Z"
                             }
                           }
                         }
-                      },
-                      "message": {
-                        "type": "string",
-                        "example": "Success retrieve data"
-                      },
-                      "status": {
-                        "type": "integer",
-                        "format": "int32",
-                        "example": 200
-                      },
-                      "statusText": {
-                        "type": "string",
-                        "example": "OK"
                       }
                     }
-                  },
-                  {
-                    "title": "response of updating a branding",
-                    "type": "object",
-                    "properties": {
-                      "data": {
-                        "type": "object",
-                        "required": [
-                          "name"
-                        ],
-                        "properties": {
-                          "id": {
-                            "type": "string",
-                            "format": "uuid",
-                            "readOnly": true,
-                            "description": "Unique identifier of the branding",
-                            "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
-                          },
-                          "background_color": {
-                            "type": "string",
-                            "description": "Background color of the branding",
-                            "example": "#000000"
-                          },
-                          "sidebar_bg_color": {
-                            "type": "string",
-                            "description": "Sidebar background color of the branding",
-                            "example": "#000000"
-                          },
-                          "sidebar_selected_bg_color": {
-                            "type": "string",
-                            "description": "Sidebar selected background color of the branding",
-                            "example": "#000000"
-                          },
-                          "sidebar_selected_font_color": {
-                            "type": "string",
-                            "description": "Sidebar selected font color of the branding",
-                            "example": "#000000"
-                          },
-                          "sidebar_font_color": {
-                            "type": "string",
-                            "description": "Sidebar font color of the branding",
-                            "example": "#000000"
-                          },
-                          "header_bg_color": {
-                            "type": "string",
-                            "description": "Header background color of the branding",
-                            "example": "#000000"
-                          },
-                          "header_font_color": {
-                            "type": "string",
-                            "description": "Header font color of the branding",
-                            "example": "#000000"
-                          },
-                          "icon_web_url": {
-                            "type": "string",
-                            "description": "Icon web url of the branding",
-                            "example": "https://www.logomaker.com/wpstatic/uploads/2021/10/LogoMaker.jpg"
-                          },
-                          "icon_mobile_url": {
-                            "type": "string",
-                            "description": "Icon mobile url of the branding",
-                            "example": "https://www.logomaker.com/wpstatic/uploads/2021/10/LogoMaker.jpg"
-                          },
-                          "merchant_id": {
-                            "type": "string",
-                            "format": "uuid",
-                            "description": "Unique identifier of the merchant",
-                            "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
-                          },
-                          "created_at": {
-                            "type": "string",
-                            "format": "date-time",
-                            "readOnly": true,
-                            "description": "Date and time when the branding was created",
-                            "example": "2019-01-01T00:00:00.000Z"
-                          },
-                          "updated_at": {
-                            "type": "string",
-                            "format": "date-time",
-                            "readOnly": true,
-                            "description": "Date and time when the branding was updated",
-                            "example": "2019-01-01T00:00:00.000Z"
-                          }
-                        }
-                      }
-                    }
-                  }
-                ]
+                  ]
+                }
               }
             }
-          }
-        },
-        "default": {
-          "description": "Error Response",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "type": "object",
-                    "required": [
-                      "name",
-                      "message",
-                      "error",
-                      "status",
-                      "statusText"
-                    ],
-                    "properties": {
-                      "name": {
-                        "type": "string",
-                        "description": "name of the error",
-                        "example": "APIClientError"
-                      },
-                      "message": {
-                        "type": "string",
-                        "example": "Error retrieving data"
-                      },
-                      "error": {
-                        "type": "object",
-                        "example": {
-                          "message": "Error retrieving data"
+          },
+          "default": {
+            "description": "Error Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "name",
+                        "message",
+                        "error",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "name of the error",
+                          "example": "APIClientError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Error retrieving data"
+                        },
+                        "error": {
+                          "type": "object",
+                          "example": {
+                            "message": "Error retrieving data"
+                          }
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 500
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": [
+                            "Internal Server Error",
+                            "Bad Request",
+                            "Not Found"
+                          ]
                         }
-                      },
-                      "status": {
-                        "type": "integer",
-                        "format": "int32",
-                        "example": 500
-                      },
-                      "statusText": {
-                        "type": "string",
-                        "example": [
-                          "Internal Server Error",
-                          "Bad Request",
-                          "Not Found"
-                        ]
                       }
-                    }
-                  },
-                  {
-                    "title": "error response of updating a branding",
-                    "type": "object",
-                    "properties": {
-                      "message": {
-                        "type": "string",
-                        "example": "Error updating branding"
-                      },
-                      "error": {
-                        "type": "object",
-                        "properties": {
-                          "message": {
-                            "type": "string",
-                            "example": "Error updating branding"
+                    },
+                    {
+                      "title": "error response of updating a branding",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Error updating branding"
+                        },
+                        "error": {
+                          "type": "object",
+                          "properties": {
+                            "message": {
+                              "type": "string",
+                              "example": "Error updating branding"
+                            }
                           }
                         }
                       }
                     }
-                  }
-                ]
+                  ]
+                }
               }
             }
           }
         }
       }
     },
-    "merchant": {
+    "/merchant": {
       "post": {
         "summary": "Create a merchant",
         "operationId": "createMerchant",
@@ -6145,355 +6152,6 @@
             }
           }
         }
-      },
-      "put": {
-        "summary": "Update a merchant",
-        "operationId": "updateMerchant",
-        "tags": [
-          "merchant"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Merchant ID",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "description": "Merchant object that needs to be updated in the store",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "required": [
-                "name"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string",
-                  "format": "uuid",
-                  "readOnly": true,
-                  "description": "Unique identifier of the mercant",
-                  "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
-                },
-                "name": {
-                  "type": "string",
-                  "description": "Name of the Merchant",
-                  "example": "Merchant 1"
-                },
-                "contact_person": {
-                  "type": "string",
-                  "description": "Contact Person of the Merchant",
-                  "example": "John Doe"
-                },
-                "contact_number": {
-                  "type": "string",
-                  "description": "Contact Number of the Merchant",
-                  "example": "09123456789"
-                },
-                "email": {
-                  "type": "string",
-                  "description": "Email of the Merchant",
-                  "example": "test@gmail.com"
-                },
-                "address": {
-                  "type": "string",
-                  "description": "Address of the Merchant",
-                  "example": "123 Main St"
-                },
-                "barangay": {
-                  "type": "string",
-                  "description": "Barangay of the mercant",
-                  "example": "Lawa"
-                },
-                "municipality": {
-                  "type": "string",
-                  "description": "Municipality of the mercant",
-                  "example": "Calamba"
-                },
-                "province": {
-                  "type": "string",
-                  "description": "Province of the mercant",
-                  "example": "Laguna"
-                },
-                "region": {
-                  "type": "string",
-                  "description": "Region of the mercant",
-                  "example": "CALABARZON"
-                },
-                "zip_code": {
-                  "type": "integer",
-                  "description": "Zip code of the mercant",
-                  "example": "1605"
-                },
-                "country": {
-                  "type": "string",
-                  "description": "Country of the mercant",
-                  "example": "Philippines"
-                },
-                "branding_id": {
-                  "type": "string",
-                  "format": "uuid",
-                  "description": "Unique identifier of the branding",
-                  "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
-                },
-                "is_active": {
-                  "type": "boolean",
-                  "description": "If the mercant is active",
-                  "example": true
-                },
-                "maximum_number_of_branches": {
-                  "type": "integer",
-                  "description": "Maximum number of branches that can be created",
-                  "example": 10
-                },
-                "created_at": {
-                  "type": "string",
-                  "format": "date-time",
-                  "readOnly": true,
-                  "description": "Date and time when the mercant was created",
-                  "example": "2019-01-01T00:00:00.000Z"
-                },
-                "updated_at": {
-                  "type": "string",
-                  "format": "date-time",
-                  "readOnly": true,
-                  "description": "Date and time when the mercant was updated",
-                  "example": "2019-01-01T00:00:00.000Z"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "type": "object",
-                      "required": [
-                        "data",
-                        "message",
-                        "status",
-                        "statusText"
-                      ],
-                      "properties": {
-                        "data": {
-                          "type": "object",
-                          "properties": {
-                            "rows": {
-                              "type": "array",
-                              "items": {
-                                "type": "object"
-                              }
-                            }
-                          }
-                        },
-                        "message": {
-                          "type": "string",
-                          "example": "Success retrieve data"
-                        },
-                        "status": {
-                          "type": "integer",
-                          "format": "int32",
-                          "example": 200
-                        },
-                        "statusText": {
-                          "type": "string",
-                          "example": "OK"
-                        }
-                      }
-                    },
-                    {
-                      "title": "response of updating a merchant",
-                      "type": "object",
-                      "properties": {
-                        "data": {
-                          "type": "object",
-                          "required": [
-                            "name"
-                          ],
-                          "properties": {
-                            "id": {
-                              "type": "string",
-                              "format": "uuid",
-                              "readOnly": true,
-                              "description": "Unique identifier of the mercant",
-                              "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
-                            },
-                            "name": {
-                              "type": "string",
-                              "description": "Name of the Merchant",
-                              "example": "Merchant 1"
-                            },
-                            "contact_person": {
-                              "type": "string",
-                              "description": "Contact Person of the Merchant",
-                              "example": "John Doe"
-                            },
-                            "contact_number": {
-                              "type": "string",
-                              "description": "Contact Number of the Merchant",
-                              "example": "09123456789"
-                            },
-                            "email": {
-                              "type": "string",
-                              "description": "Email of the Merchant",
-                              "example": "test@gmail.com"
-                            },
-                            "address": {
-                              "type": "string",
-                              "description": "Address of the Merchant",
-                              "example": "123 Main St"
-                            },
-                            "barangay": {
-                              "type": "string",
-                              "description": "Barangay of the mercant",
-                              "example": "Lawa"
-                            },
-                            "municipality": {
-                              "type": "string",
-                              "description": "Municipality of the mercant",
-                              "example": "Calamba"
-                            },
-                            "province": {
-                              "type": "string",
-                              "description": "Province of the mercant",
-                              "example": "Laguna"
-                            },
-                            "region": {
-                              "type": "string",
-                              "description": "Region of the mercant",
-                              "example": "CALABARZON"
-                            },
-                            "zip_code": {
-                              "type": "integer",
-                              "description": "Zip code of the mercant",
-                              "example": "1605"
-                            },
-                            "country": {
-                              "type": "string",
-                              "description": "Country of the mercant",
-                              "example": "Philippines"
-                            },
-                            "branding_id": {
-                              "type": "string",
-                              "format": "uuid",
-                              "description": "Unique identifier of the branding",
-                              "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
-                            },
-                            "is_active": {
-                              "type": "boolean",
-                              "description": "If the mercant is active",
-                              "example": true
-                            },
-                            "maximum_number_of_branches": {
-                              "type": "integer",
-                              "description": "Maximum number of branches that can be created",
-                              "example": 10
-                            },
-                            "created_at": {
-                              "type": "string",
-                              "format": "date-time",
-                              "readOnly": true,
-                              "description": "Date and time when the mercant was created",
-                              "example": "2019-01-01T00:00:00.000Z"
-                            },
-                            "updated_at": {
-                              "type": "string",
-                              "format": "date-time",
-                              "readOnly": true,
-                              "description": "Date and time when the mercant was updated",
-                              "example": "2019-01-01T00:00:00.000Z"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "type": "object",
-                      "required": [
-                        "name",
-                        "message",
-                        "error",
-                        "status",
-                        "statusText"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": "string",
-                          "description": "name of the error",
-                          "example": "APIClientError"
-                        },
-                        "message": {
-                          "type": "string",
-                          "example": "Error retrieving data"
-                        },
-                        "error": {
-                          "type": "object",
-                          "example": {
-                            "message": "Error retrieving data"
-                          }
-                        },
-                        "status": {
-                          "type": "integer",
-                          "format": "int32",
-                          "example": 500
-                        },
-                        "statusText": {
-                          "type": "string",
-                          "example": [
-                            "Internal Server Error",
-                            "Bad Request",
-                            "Not Found"
-                          ]
-                        }
-                      }
-                    },
-                    {
-                      "title": "error response of updating a merchant",
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "example": "Error updating merchant"
-                        },
-                        "error": {
-                          "type": "object",
-                          "properties": {
-                            "message": {
-                              "type": "string",
-                              "example": "Error updating merchant"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        }
       }
     },
     "/merchant/{id}": {
@@ -6728,6 +6386,357 @@
                             "message": {
                               "type": "string",
                               "example": "Error getting merchant"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a merchant",
+        "operationId": "updateMerchant",
+        "tags": [
+          "merchant"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Merchant object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "readOnly": true,
+                    "description": "Unique identifier of the mercant",
+                    "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the Merchant",
+                    "example": "Merchant 1"
+                  },
+                  "contact_person": {
+                    "type": "string",
+                    "description": "Contact Person of the Merchant",
+                    "example": "John Doe"
+                  },
+                  "contact_number": {
+                    "type": "string",
+                    "description": "Contact Number of the Merchant",
+                    "example": "09123456789"
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "Email of the Merchant",
+                    "example": "test@gmail.com"
+                  },
+                  "address": {
+                    "type": "string",
+                    "description": "Address of the Merchant",
+                    "example": "123 Main St"
+                  },
+                  "barangay": {
+                    "type": "string",
+                    "description": "Barangay of the mercant",
+                    "example": "Lawa"
+                  },
+                  "municipality": {
+                    "type": "string",
+                    "description": "Municipality of the mercant",
+                    "example": "Calamba"
+                  },
+                  "province": {
+                    "type": "string",
+                    "description": "Province of the mercant",
+                    "example": "Laguna"
+                  },
+                  "region": {
+                    "type": "string",
+                    "description": "Region of the mercant",
+                    "example": "CALABARZON"
+                  },
+                  "zip_code": {
+                    "type": "integer",
+                    "description": "Zip code of the mercant",
+                    "example": "1605"
+                  },
+                  "country": {
+                    "type": "string",
+                    "description": "Country of the mercant",
+                    "example": "Philippines"
+                  },
+                  "branding_id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Unique identifier of the branding",
+                    "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
+                  },
+                  "is_active": {
+                    "type": "boolean",
+                    "description": "If the mercant is active",
+                    "example": true
+                  },
+                  "maximum_number_of_branches": {
+                    "type": "integer",
+                    "description": "Maximum number of branches that can be created",
+                    "example": 10
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "description": "Date and time when the mercant was created",
+                    "example": "2019-01-01T00:00:00.000Z"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "description": "Date and time when the mercant was updated",
+                    "example": "2019-01-01T00:00:00.000Z"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "data",
+                        "message",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "rows": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Success retrieve data"
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 200
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": "OK"
+                        }
+                      }
+                    },
+                    {
+                      "title": "response of updating a merchant",
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "required": [
+                            "name"
+                          ],
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "format": "uuid",
+                              "readOnly": true,
+                              "description": "Unique identifier of the mercant",
+                              "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "Name of the Merchant",
+                              "example": "Merchant 1"
+                            },
+                            "contact_person": {
+                              "type": "string",
+                              "description": "Contact Person of the Merchant",
+                              "example": "John Doe"
+                            },
+                            "contact_number": {
+                              "type": "string",
+                              "description": "Contact Number of the Merchant",
+                              "example": "09123456789"
+                            },
+                            "email": {
+                              "type": "string",
+                              "description": "Email of the Merchant",
+                              "example": "test@gmail.com"
+                            },
+                            "address": {
+                              "type": "string",
+                              "description": "Address of the Merchant",
+                              "example": "123 Main St"
+                            },
+                            "barangay": {
+                              "type": "string",
+                              "description": "Barangay of the mercant",
+                              "example": "Lawa"
+                            },
+                            "municipality": {
+                              "type": "string",
+                              "description": "Municipality of the mercant",
+                              "example": "Calamba"
+                            },
+                            "province": {
+                              "type": "string",
+                              "description": "Province of the mercant",
+                              "example": "Laguna"
+                            },
+                            "region": {
+                              "type": "string",
+                              "description": "Region of the mercant",
+                              "example": "CALABARZON"
+                            },
+                            "zip_code": {
+                              "type": "integer",
+                              "description": "Zip code of the mercant",
+                              "example": "1605"
+                            },
+                            "country": {
+                              "type": "string",
+                              "description": "Country of the mercant",
+                              "example": "Philippines"
+                            },
+                            "branding_id": {
+                              "type": "string",
+                              "format": "uuid",
+                              "description": "Unique identifier of the branding",
+                              "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
+                            },
+                            "is_active": {
+                              "type": "boolean",
+                              "description": "If the mercant is active",
+                              "example": true
+                            },
+                            "maximum_number_of_branches": {
+                              "type": "integer",
+                              "description": "Maximum number of branches that can be created",
+                              "example": 10
+                            },
+                            "created_at": {
+                              "type": "string",
+                              "format": "date-time",
+                              "readOnly": true,
+                              "description": "Date and time when the mercant was created",
+                              "example": "2019-01-01T00:00:00.000Z"
+                            },
+                            "updated_at": {
+                              "type": "string",
+                              "format": "date-time",
+                              "readOnly": true,
+                              "description": "Date and time when the mercant was updated",
+                              "example": "2019-01-01T00:00:00.000Z"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "name",
+                        "message",
+                        "error",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "name of the error",
+                          "example": "APIClientError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Error retrieving data"
+                        },
+                        "error": {
+                          "type": "object",
+                          "example": {
+                            "message": "Error retrieving data"
+                          }
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 500
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": [
+                            "Internal Server Error",
+                            "Bad Request",
+                            "Not Found"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "title": "error response of updating a merchant",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Error updating merchant"
+                        },
+                        "error": {
+                          "type": "object",
+                          "properties": {
+                            "message": {
+                              "type": "string",
+                              "example": "Error updating merchant"
                             }
                           }
                         }
