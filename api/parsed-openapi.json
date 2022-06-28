@@ -167,7 +167,7 @@
     }
   ],
   "paths": {
-    "/user": {
+    "/users": {
       "get": {
         "summary": "List of user/s",
         "operationId": "listUser",
@@ -202,7 +202,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "example": "address",
+              "example": "branch_id",
               "default": "created_at"
             }
           },
@@ -689,7 +689,7 @@
         }
       }
     },
-    "/user/{id}": {
+    "/users/{id}": {
       "put": {
         "summary": "Update a user",
         "operationId": "updateUser",
@@ -3875,7 +3875,7 @@
         }
       }
     },
-    "/role": {
+    "/roles": {
       "get": {
         "summary": "Get list of roles",
         "operationId": "listRoles",
@@ -3900,7 +3900,9 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "default": 1
+              "default": 1,
+              "minimum": 1,
+              "maximum": 100
             }
           },
           {
@@ -3910,8 +3912,8 @@
             "required": false,
             "schema": {
               "type": "string",
-              "example": "address",
-              "default": "created_at"
+              "default": "created_at",
+              "example": "created_at"
             }
           },
           {
@@ -3921,8 +3923,8 @@
             "required": false,
             "schema": {
               "type": "string",
-              "example": "ASC",
-              "default": "DESC"
+              "default": "DESC",
+              "example": "ASC"
             }
           }
         ],
@@ -4341,7 +4343,7 @@
         }
       }
     },
-    "/role/{id}": {
+    "/roles/{id}": {
       "get": {
         "summary": "Get role details",
         "operationId": "getRoleDetails",
@@ -7499,7 +7501,9 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "default": 1
+              "default": 1,
+              "minimum": 1,
+              "maximum": 100
             }
           },
           {
@@ -7509,8 +7513,8 @@
             "required": false,
             "schema": {
               "type": "string",
-              "example": "address",
-              "default": "created_at"
+              "default": "created_at",
+              "example": "created_at"
             }
           },
           {
@@ -7520,8 +7524,8 @@
             "required": false,
             "schema": {
               "type": "string",
-              "example": "ASC",
-              "default": "DESC"
+              "default": "DESC",
+              "example": "ASC"
             }
           }
         ],
@@ -13466,7 +13470,9 @@
         "required": true,
         "schema": {
           "type": "integer",
-          "default": 1
+          "default": 1,
+          "minimum": 1,
+          "maximum": 100
         }
       },
       "sort_by": {
@@ -13476,8 +13482,8 @@
         "required": false,
         "schema": {
           "type": "string",
-          "example": "address",
-          "default": "created_at"
+          "default": "created_at",
+          "example": "created_at"
         }
       },
       "sort_desc": {
@@ -13487,8 +13493,8 @@
         "required": false,
         "schema": {
           "type": "string",
-          "example": "ASC",
-          "default": "DESC"
+          "default": "DESC",
+          "example": "ASC"
         }
       }
     }
