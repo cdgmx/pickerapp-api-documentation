@@ -9098,6 +9098,237 @@
         }
       }
     },
+    "/orders/{orderId}/picklists": {
+      "get": {
+        "summary": "Get order picklists",
+        "operationId": "getOrderPicklists",
+        "tags": [
+          "order"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "Order ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "data",
+                        "message",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "rows": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Success retrieve data"
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 200
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": "OK"
+                        }
+                      }
+                    },
+                    {
+                      "title": "response of getting order picklists",
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "required": [
+                              "order_id"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "readOnly": true,
+                                "description": "Unique identifier of the picklist",
+                                "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
+                              },
+                              "order_id": {
+                                "type": "string",
+                                "format": "uuid",
+                                "description": "order id of the picklist",
+                                "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
+                              },
+                              "status_id": {
+                                "type": "integer",
+                                "description": "status id of the picklist",
+                                "example": "1"
+                              },
+                              "picklist_number": {
+                                "type": "integer",
+                                "description": "picklist number of the picklist",
+                                "example": 1
+                              },
+                              "delivery_date": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "delivery date of the picklist",
+                                "example": "2019-01-01T00:00:00.000Z"
+                              },
+                              "delivery_time_block_from": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "delivery time block from of the picklist",
+                                "example": "2019-01-01T00:00:00.000Z"
+                              },
+                              "delivery_time_block_to": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "delivery time block to of the picklist",
+                                "example": "2019-01-01T00:00:00.000Z"
+                              },
+                              "picked_cost": {
+                                "type": "number",
+                                "description": "picked cost of the picklist",
+                                "example": 10
+                              },
+                              "picked_quantity": {
+                                "type": "integer",
+                                "description": "picked quantity of the picklist",
+                                "example": 10
+                              },
+                              "zone": {
+                                "type": "string",
+                                "description": "zone of the picklist",
+                                "example": "Zone 1"
+                              },
+                              "assigned_picker_id": {
+                                "type": "string",
+                                "format": "uuid",
+                                "description": "assigned picker id of the picklist",
+                                "example": "5d8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f"
+                              },
+                              "created_at": {
+                                "type": "string",
+                                "format": "date-time",
+                                "readOnly": true,
+                                "description": "created at of the picklist",
+                                "example": "2019-01-01T00:00:00.000Z"
+                              },
+                              "updated_at": {
+                                "type": "string",
+                                "format": "date-time",
+                                "readOnly": true,
+                                "description": "updated at of the picklist",
+                                "example": "2019-01-01T00:00:00.000Z"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "name",
+                        "message",
+                        "error",
+                        "status",
+                        "statusText"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "name of the error",
+                          "example": "APIClientError"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Error retrieving data"
+                        },
+                        "error": {
+                          "type": "object",
+                          "example": {
+                            "message": "Error retrieving data"
+                          }
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 500
+                        },
+                        "statusText": {
+                          "type": "string",
+                          "example": [
+                            "Internal Server Error",
+                            "Bad Request",
+                            "Not Found"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "title": "error response of getting order picklists",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Error getting order picklists"
+                        },
+                        "error": {
+                          "type": "object",
+                          "properties": {
+                            "message": {
+                              "type": "string",
+                              "example": "Error getting order picklists"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/orders/{orderId}/items": {
       "get": {
         "summary": "Get all order items",
