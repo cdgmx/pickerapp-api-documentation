@@ -789,7 +789,10 @@
             "name": "id_token",
             "in": "header",
             "description": "ID Token",
-            "required": true
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
             
           }
         ],
@@ -1253,7 +1256,6 @@
         }
       }
     },
-
     "/branch": {
       "get": {
         "summary": "Get all branches",
@@ -1394,6 +1396,83 @@
             }
           }
         }
+      }
+    },
+    "/branch/{id}": {
+      "get": {
+        "summary": "Get branch detils",
+        "operationId": "getBranch",
+        "tags": ["branch"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Branch ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Success"
+                    },
+                    {
+                      "title": "response of getting a branch",
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "$ref": "#/components/schemas/Branch"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Error"
+                    },
+                    {
+                      "title": "error response of getting a branch",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Error getting branch"
+                        },
+                        "error": {
+                          "type": "object",
+                          "properties": {
+                            "message": {
+                              "type": "string",
+                              "example": "Error getting branch"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
       },
       "put": {
         "summary": "Update a branch",
@@ -1469,83 +1548,6 @@
                             "message": {
                               "type": "string",
                               "example": "Error updating branch"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/branch/{id}": {
-      "get": {
-        "summary": "Get branch detils",
-        "operationId": "getBranch",
-        "tags": ["branch"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Branch ID",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "$ref": "#/components/schemas/Success"
-                    },
-                    {
-                      "title": "response of getting a branch",
-                      "type": "object",
-                      "properties": {
-                        "data": {
-                          "$ref": "#/components/schemas/Branch"
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "$ref": "#/components/schemas/Error"
-                    },
-                    {
-                      "title": "error response of getting a branch",
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "example": "Error getting branch"
-                        },
-                        "error": {
-                          "type": "object",
-                          "properties": {
-                            "message": {
-                              "type": "string",
-                              "example": "Error getting branch"
                             }
                           }
                         }
@@ -1788,90 +1790,6 @@
             }
           }
         }
-      },
-      "put": {
-        "summary": "Update a role",
-        "operationId": "updateRole",
-        "tags": ["role"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Role ID",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "description": "Role object that needs to be updated in the store",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Role"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "$ref": "#/components/schemas/Success"
-                    },
-                    {
-                      "title": "response of updating a role",
-                      "type": "object",
-                      "properties": {
-                        "data": {
-                          "$ref": "#/components/schemas/Role"
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "$ref": "#/components/schemas/Error"
-                    },
-                    {
-                      "title": "error response of updating a role",
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "example": "Error updating role"
-                        },
-                        "error": {
-                          "type": "object",
-                          "properties": {
-                            "message": {
-                              "type": "string",
-                              "example": "Error updating role"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        }
       }
     },
     "/role/{id}": {
@@ -1939,6 +1857,92 @@
                             "message": {
                               "type": "string",
                               "example": "Error getting role details"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a role",
+        "operationId": "updateRole",
+        "tags": ["role"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Role ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody":{
+          "description": "Role object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Role"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Success"
+                    },
+                    {
+                      "title": "response of updating a role",
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "$ref": "#/components/schemas/Role"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Error"
+                    },
+                    {
+                      "title": "error response of updating a role",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Error updating role"
+                        },
+                        "error": {
+                          "type": "object",
+                          "properties": {
+                            "message": {
+                              "type": "string",
+                              "example": "Error updating role"
                             }
                           }
                         }
@@ -2193,17 +2197,18 @@
               "type": "string",
               "format": "uuid"
             }
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "description": "Branding object that needs to be updated in the store",
-            "required": true,
+          }
+        ],
+      "requestBody":{
+        "description": "Branding object",
+        "required": true,
+        "content": {
+          "application/json": {
             "schema": {
               "$ref": "#/components/schemas/Branding"
             }
           }
-        ]
+        }
       },
       "responses": {
         "200": {
@@ -2263,8 +2268,10 @@
           }
         }
       }
+      
+    }
     },
-    "merchant": {
+    "/merchant": {
       "post": {
         "summary": "Create a merchant",
         "operationId": "createMerchant",
@@ -2327,90 +2334,6 @@
                             "message": {
                               "type": "string",
                               "example": "Error creating merchant"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "summary": "Update a merchant",
-        "operationId": "updateMerchant",
-        "tags": ["merchant"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Merchant ID",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "description": "Merchant object that needs to be updated in the store",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Merchant"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "$ref": "#/components/schemas/Success"
-                    },
-                    {
-                      "title": "response of updating a merchant",
-                      "type": "object",
-                      "properties": {
-                        "data": {
-                          "$ref": "#/components/schemas/Merchant"
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "$ref": "#/components/schemas/Error"
-                    },
-                    {
-                      "title": "error response of updating a merchant",
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "example": "Error updating merchant"
-                        },
-                        "error": {
-                          "type": "object",
-                          "properties": {
-                            "message": {
-                              "type": "string",
-                              "example": "Error updating merchant"
                             }
                           }
                         }
@@ -2488,6 +2411,92 @@
                             "message": {
                               "type": "string",
                               "example": "Error getting merchant"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a merchant",
+        "operationId": "updateMerchant",
+        "tags": ["merchant"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody":{
+          "description": "Merchant object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Merchant"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Success"
+                    },
+                    {
+                      "title": "response of updating a merchant",
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "$ref": "#/components/schemas/Merchant"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Error"
+                    },
+                    {
+                      "title": "error response of updating a merchant",
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "example": "Error updating merchant"
+                        },
+                        "error": {
+                          "type": "object",
+                          "properties": {
+                            "message": {
+                              "type": "string",
+                              "example": "Error updating merchant"
                             }
                           }
                         }
